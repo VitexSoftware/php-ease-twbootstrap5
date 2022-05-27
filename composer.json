@@ -1,0 +1,32 @@
+{
+    "name": "vitexsoftware/ease-bootstrap5",
+    "description": "Set of Twitter Bootstrap 5 rendering objects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vítězslav Vitex Dvořák",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "require": {
+        "vitexsoftware/ease-html": ">= 1.25"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ease\\TWB5\\": "src/Ease/TWB5/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Ease\\": "vendor/vitexsoftware/ease-core/tests/src/Ease",
+            "Test\\Ease\\Html\\": "vendor/vitexsoftware/ease-html/tests/src/Ease/Html/",
+            "Test\\Ease\\TWB5\\": "testing/src/Ease/TWB5/",
+            "Test\\": "testing/",
+            "Example\\Ease\\TWB5\\": "Examples"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
