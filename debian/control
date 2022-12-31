@@ -17,7 +17,7 @@ Description: Set of Twitter Bootstrap 5 rendering objects
  TWB5 classes for Ease Framework.
 
 Package: php-vitexsoftware-ease-bootstrap5-dev
-Depends: ${misc:Depends}, php-vitexsoftware-ease-bootstrap5
+Depends: ${misc:Depends}, php-vitexsoftware-ease-bootstrap5, phpunit
 Architecture: all
 Replaces: php-ease-bootstrap5-dev
 Suggests: php-vitexsoftware-ease-html
