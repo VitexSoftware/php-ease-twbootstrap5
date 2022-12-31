@@ -1,5 +1,14 @@
-composer.phar
+ composer.phar
 /vendor/
+
+/debian/php-vitexsoftware-ease-bootstrap5
+/debian/php-vitexsoftware-ease-bootstrap5-dev
+/debian/php-vitexsoftware-ease-bootstrap5-doc
+
+/debian/.debhelper/
+/debian/files
+/debian/*.substvars
+/debian/*.log
 
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file

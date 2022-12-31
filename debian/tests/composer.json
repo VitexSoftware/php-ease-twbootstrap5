@@ -1,0 +1,34 @@
+{
+  "name": "deb/ease-bootstrap5",
+  "description": "Set of Twitter Bootstrap 5 rendering objects (debianized)",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "Vítězslav Dvořák",
+      "email": "info@vitexsoftware.cz",
+      "homepage": "http://v.s.cz/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ease\\TWB5\\": "."
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "deb/ease-html": "*"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseCore"
+    },
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseHtml"
+    }
+  ],
+  "type": "library",
+  "homepage": "https://github.com/VitexSoftware/php-ease-twbootstrap5",
+  "license": "MIT"
+}

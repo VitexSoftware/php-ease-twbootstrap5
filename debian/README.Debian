@@ -1,0 +1,51 @@
+Ease framework TWB4 for Debian
+------------------------------
+    
+    Is installed by standard way in /usr/share/php/EaseTWB4
+
+Then you can use system wide installed libraries in your package using this
+minimal template of composer.json
+
+```
+{
+    "name": "deb/your-package",
+    "description": "App using Ease framework installed as debian package",
+    "config": {
+        "vendor-dir": "/var/lib/your-package"
+    },
+    "require": {
+        "deb/ease-core": "*",
+        "deb/ease-html": "*",
+        "deb/ease-bootstrap4": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseCore",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseHtml",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseTWB4",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}
+
+```
+
+
+
+ -- Vítězslav Dvořák <vitex@hippy.cz>  Ne říj 21 15:17:56 CEST 2012
+

@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+PKG_PATH:=/usr/share/php/EaseTWB
+BUILD_DIR:=build
+
+%:
+	dh $@
+
+override_dh_prep:
+	mkdir -p docs
+	rm docs/* -rf
+	phpdoc -d src --title "Vitex Software's Ease Twitter Bootstrap5"
+	mv .phpdoc/build/* docs
+	dh_prep
+
+
+override_dh_auto_test:
+	echo tests temporarly skipped for now in rules file
+
+override_dh_install:
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
+	dh_install

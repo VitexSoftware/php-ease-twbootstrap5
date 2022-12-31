@@ -1,0 +1,5 @@
+#tests/src/Ease/*                usr/share/php/EaseHtml/Test/
+tests/src/Ease/TWB5/*           usr/share/php/EaseTWB5/Test/TWB5
+debian/tests/Bootstrap.php	usr/share/php/EaseTWB5/Test/
+debian/tests/phpunit.xml		usr/share/php/EaseTWB5/Test/
+#debian/tests/composer.json	usr/lib/php-vitexsoftware-ease-bootstrap5-dev/
