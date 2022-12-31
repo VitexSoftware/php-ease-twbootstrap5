@@ -2,7 +2,7 @@
 
 #DEBHELPER#
 
-# postinst script for php-vitexsoftware-ease-html-dev
+# postinst script for php-vitexsoftware-ease-bootstrap5-dev
 #
 # see: dh_installdeb(1)
 
@@ -25,10 +25,10 @@ set -e
 
 case "$1" in
     configure)
-        composer-debian php-vitexsoftware-ease-html-dev
+        composer-debian php-vitexsoftware-ease-bootstrap5-dev
 	pwd
-	echo 'TESTING: phpunit --bootstrap /usr/share/php/EaseHtml/Test/Bootstrap.php --configuration /usr/share/php/EaseHtml/Test/phpunit.xml'
-	su - `composer-webuser` -s /bin/bash -c 'phpunit --bootstrap /usr/share/php/EaseHtml/Test/Bootstrap.php --configuration /usr/share/php/EaseHtml/Test/phpunit.xml'
+	echo 'TESTING: phpunit --bootstrap /usr/share/php/EaseTWB5/Test/Bootstrap.php --configuration /usr/share/php/EaseTWB5/Test/phpunit.xml'
+	su - `composer-webuser` -s /bin/bash -c 'phpunit --bootstrap /usr/share/php/EaseTWB/Test/Bootstrap.php --configuration /usr/share/php/EaseTWB5/Test/phpunit.xml'
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
