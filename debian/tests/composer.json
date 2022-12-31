@@ -26,6 +26,10 @@
     {
       "type": "path",
       "url": "/usr/share/php/EaseHtml"
+    },
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseTWB5"
     }
   ],
   "type": "library",
