@@ -27,7 +27,7 @@ Description: Set of Twitter Bootstrap 5 rendering objects
 # Ease Framework Core unit Test classes.
 
 Package: php-vitexsoftware-ease-bootstrap5-doc
-Depends: ${misc:Depends}, php-vitexsoftware-ease-bootstrap5-dev
+Depends: ${misc:Depends}
 Architecture: all
 Section: devel
 Priority: optional
