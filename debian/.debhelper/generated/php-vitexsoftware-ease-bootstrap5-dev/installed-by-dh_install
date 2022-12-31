@@ -1,8 +1,0 @@
-./tests/src/Ease/TWB5/AlertTest.php
-./tests/src/Ease/TWB5/ContainerTest.php
-./tests/src/Ease/TWB5/NavbarTest.php
-./tests/src/Ease/TWB5/NavItemDropDownTest.php
-./tests/src/Ease/TWB5/PartTest.php
-./tests/src/Ease/TWB5/WebPageTest.php
-./debian/tests/Bootstrap.php
-./debian/tests/phpunit.xml
