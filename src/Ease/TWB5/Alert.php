@@ -8,7 +8,7 @@ use Ease\Html\DivTag;
  * Twitter Bootrstap5 Alert.
  *
  * @author    Vitex <vitex@hippy.cz>
- * @copyright 2019 Vitex@hippy.cz (G)
+ * @copyright 2019-2024 info@vitexsoftware.cz (G)
  */
 class Alert extends DivTag
 {
