@@ -9,17 +9,17 @@
 
 namespace Ease\TWB5;
 
-class Container extends \Ease\Html\DivTag {
-
+class Container extends \Ease\Html\DivTag
+{
     /**
      * Twitter Bootrstap Container.
      *
      * @param mixed $content
      * @param array $properties of Container Row
      */
-    public function __construct($content = null, $properties = []) {
+    public function __construct($content = null, $properties = [])
+    {
         parent::__construct($content, $properties);
         $this->addTagClass('container');
     }
-
 }

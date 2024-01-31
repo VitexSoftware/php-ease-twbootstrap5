@@ -15,7 +15,6 @@ namespace Ease\TWB5;
  */
 class Table extends \Ease\Html\TableTag
 {
-
     /**
      * TWB4 Table.
      *

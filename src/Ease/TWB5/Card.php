@@ -1,4 +1,5 @@
 <?php
+
 namespace Ease\TWB5;
 
 use Ease\Html\DivTag;
@@ -10,11 +11,10 @@ use Ease\Html\DivTag;
  */
 class Card extends DivTag
 {
-
     public function __construct($content = null, $properties = [])
     {
         if (is_array($properties) && array_key_exists('class', $properties)) {
-            $properties['class'] = 'card '.$properties['class'];
+            $properties['class'] = 'card ' . $properties['class'];
         } else {
             $properties['class'] = 'card';
         }

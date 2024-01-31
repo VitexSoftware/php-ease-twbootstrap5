@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Twitter Bootrstap Row.
  *
@@ -10,22 +11,21 @@ namespace Ease\TWB5;
 
 class Row extends \Ease\Html\DivTag
 {
-
     /**
      * Twitter Bootrstap Row.
-     * 
+     *
      * @see https://getbootstrap.com/docs/5.0/layout/grid/#row-columns
      *
      * @param mixed $content    Initial content
      * @param int   $rowCols    With "auto" you can give the columns their natural width.
-     * @param array $properties Of Row Div 
+     * @param array $properties Of Row Div
      */
-    public function __construct($content = null, $rowCols = 0,  $properties = [])
+    public function __construct($content = null, $rowCols = 0, $properties = [])
     {
-        parent::__construct($content,  $properties);
+        parent::__construct($content, $properties);
         $this->addTagClass('row');
-        if($rowCols){
-            $this->addTagClass('row-cols-'.$rowCols);
+        if ($rowCols) {
+            $this->addTagClass('row-cols-' . $rowCols);
         }
     }
 
@@ -41,9 +41,12 @@ class Row extends \Ease\Html\DivTag
      *
      * @return Col Column contains $content
      */
-    public function &addColumn($size, $content = null, $target = 'md',
-                               $properties = [])
-    {
+    public function &addColumn(
+        $size,
+        $content = null,
+        $target = 'md',
+        $properties = []
+    ) {
         $added = $this->addItem(new Col($size, $content, $target, $properties));
 
         return $added;
