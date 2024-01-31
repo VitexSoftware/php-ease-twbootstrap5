@@ -20,7 +20,7 @@ class InputGroup extends \Ease\Container
 {
     public $inputGroup;
     /**
-     * 
+     *
      * @param string $heading
      * @param \Ease\Html\InputTag $input
      */
@@ -28,18 +28,18 @@ class InputGroup extends \Ease\Container
     {
         parent::__construct();
         $input->setTagID();
-        if($heading){
-            $this->addItem(new \Ease\Html\LabelTag($for, $contents, ['class'=>'form-label','for'=>$input->getTagID()]));
+        if ($heading) {
+            $this->addItem(new \Ease\Html\LabelTag($input->getTagID(), $heading, ['class' => 'form-label']));
         }
 
-        $this->inputGroup = $this->addItem(new \Ease\Html\DivTag('', ['class'=>'input-group']));
-        if($preText){
-            $pre = new \Ease\Html\SpanTag($preText, ['class'=>'input-group-text']);
+        $this->inputGroup = $this->addItem(new \Ease\Html\DivTag('', ['class' => 'input-group']));
+        if ($preText) {
+            $pre = new \Ease\Html\SpanTag($preText, ['class' => 'input-group-text']);
             $pre->setTagID();
             $input->setTagProperty('aria-described-by', $pre->getTagID());
             $this->inputGroup->addItem($pre);
-        } 
-        
+        }
+
         $this->inputGroup->addItem($input);
     }
 }

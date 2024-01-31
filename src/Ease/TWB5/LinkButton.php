@@ -12,7 +12,6 @@ namespace Ease\TWB5;
  */
 class LinkButton extends \Ease\Html\ATag
 {
-
     /**
      * Bootstrap's Link Button.
      *
@@ -21,18 +20,21 @@ class LinkButton extends \Ease\Html\ATag
      * @param string $type       primary|info|success|warning|danger|inverse|link
      * @param array  $properties additional properties
      */
-    public function __construct($href, $contents = null, $type = null,
-                                $properties = [])
-    {
+    public function __construct(
+        $href,
+        $contents = null,
+        $type = null,
+        $properties = []
+    ) {
         if (isset($properties['class'])) {
-            $class = ' '.$properties['class'];
+            $class = ' ' . $properties['class'];
         } else {
             $class = '';
         }
         if (is_null($type)) {
             $properties['class'] = 'btn btn-default';
         } else {
-            $properties['class'] = 'btn btn-'.$type;
+            $properties['class'] = 'btn btn-' . $type;
         }
         $properties['class'] .= $class;
         parent::__construct($href, $contents, $properties);

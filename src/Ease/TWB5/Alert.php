@@ -12,7 +12,6 @@ use Ease\Html\DivTag;
  */
 class Alert extends DivTag
 {
-
     /**
      * Bootstrap5's Alert
      * @link https://getbootstrap.com/docs/5.0/components/alerts/

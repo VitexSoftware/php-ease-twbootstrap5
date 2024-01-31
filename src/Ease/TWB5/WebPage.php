@@ -12,39 +12,38 @@ namespace Ease\TWB5;
  */
 class WebPage extends \Ease\WebPage
 {
-
     /**
      * Where to look for bootstrap stylesheet
-     * @var string path or url 
+     * @var string path or url
      */
     public $bootstrapCSS = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
 
     /**
      * Where to look for bootstrap stylesheet theme
-     * @var string path or url 
+     * @var string path or url
      */
     public $bootstrapThemeCSS = '';
 
     /**
      * Where to look for bootstrap stylesheet scripts
-     * @var string path or url 
+     * @var string path or url
      */
     public $bootstrapJavaScript = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
 
     /**
-     * 
+     *
      * @var type
      */
     public $header = null;
 
     /**
-     * 
+     *
      * @var type
      */
     public $main = null;
 
     /**
-     * 
+     *
      * @var type
      */
     public $footer = null;
@@ -60,7 +59,7 @@ class WebPage extends \Ease\WebPage
         Part::twBootstrapize();
 
         $this->head->addItem(
-                '<meta charset="utf-8">' .
+            '<meta charset="utf-8">' .
                 '<meta name="viewport" content="width=device-width, initial-scale=1">'
         );
     }
