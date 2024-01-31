@@ -20,9 +20,9 @@ use Ease\TWB5\Part;
 class Navbar extends NavTag {
 
     /**
-     * Vnitřek menu.
+     * Main menu content
      *
-     * @var array
+     * @var UlTag
      */
     public $leftContent = null;
 
@@ -41,12 +41,13 @@ class Navbar extends NavTag {
 
     /**
      * Brand link destination
+     * 
      * @var string 
      */
     public $mainpage = '#';
 
     /**
-     * Menu aplikace.
+     * App Menu
      *
      * @param string $brand
      * @param string $name
@@ -122,7 +123,7 @@ class Navbar extends NavTag {
     /**
      * Navbar collapse helper
      * 
-     * @return \Ease\Html\DivTagnavbar collapse
+     * @return \Ease\Html\DivTag navbar collapse
      */
     public function navbarCollapse() {
         return new DivTag([$this->leftContent, $this->rightContent],
