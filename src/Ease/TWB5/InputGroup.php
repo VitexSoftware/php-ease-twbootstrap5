@@ -29,7 +29,7 @@ class InputGroup extends \Ease\Container
         parent::__construct();
         $input->setTagID();
         if ($heading) {
-            $this->addItem(new \Ease\Html\LabelTag($for, $contents, ['class' => 'form-label','for' => $input->getTagID()]));
+            $this->addItem(new \Ease\Html\LabelTag($input->getTagID(), $heading, ['class' => 'form-label']));
         }
 
         $this->inputGroup = $this->addItem(new \Ease\Html\DivTag('', ['class' => 'input-group']));
