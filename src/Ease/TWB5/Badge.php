@@ -16,7 +16,7 @@ namespace Ease\TWB5;
  *
  * @author vitex
  */
-class Badge extends \Ease\Html\DivTag
+class Badge extends \Ease\Html\SpanTag
 {
     /**
      * Badge Compatibily Class
@@ -28,6 +28,6 @@ class Badge extends \Ease\Html\DivTag
     public function __construct($content = null, $type = 'default', $properties = [])
     {
         parent::__construct($content, $properties);
-        $this->addTagClass('bg-' . $type . ' rounded-pill');
+        $this->addTagClass('badge bg-' . $type);
     }
 }
