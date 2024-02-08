@@ -24,7 +24,7 @@ class InputGroup extends \Ease\Container
      * @param string $heading
      * @param \Ease\Html\InputTag $input
      */
-    public function __construct($heading, \Ease\Html\InputTag $input, $preText = '')
+    public function __construct($heading, \Ease\Html\InputTag|\Ease\Html\TextareaTag|\Ease\Html\SelectTag $input, $preText = '')
     {
         parent::__construct();
         $input->setTagID();
