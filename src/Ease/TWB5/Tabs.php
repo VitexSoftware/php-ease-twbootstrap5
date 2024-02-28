@@ -35,7 +35,7 @@ class Tabs extends \Ease\Container
     {
         parent::__construct(null, $properties);
         $this->tabs = $tabs;
-        $this->id = array_key_exists('id', $properties) ? $properties['id'] : \Ease\Functions::randstr();
+        $this->id = array_key_exists('id', $properties) ? $properties['id'] : \Ease\Functions::randomString();
     }
 
     /**
