@@ -17,8 +17,8 @@ use Ease\TWB5\Part;
 /**
  * Bootstrap5 NavBar.
  */
-class Navbar extends NavTag
-{
+class Navbar extends NavTag {
+
     /**
      * Main menu content
      *
@@ -53,11 +53,7 @@ class Navbar extends NavTag
      * @param string $name
      * @param array  $properties
      */
-    public function __construct(
-        $brand = null,
-        $name = 'navbar',
-        $properties = []
-    ) {
+    public function __construct($brand = null, $name = 'navbar', $properties = []) {
         if (is_array($properties) && array_key_exists('class', $properties)) {
             $originalClass = $properties['class'];
         } else {
@@ -71,8 +67,8 @@ class Navbar extends NavTag
             $this->navBarToggler()], $properties);
         Part::twBootstrapize();
 
-        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav mr-auto']);
-        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ml-auto']);
+        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap navbar-expand mb-2 mb-lg-0', 'style' => "--bs-scroll-height: 100px;"]);
+        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ml-auto']); //TODO
     }
 
     /**
@@ -84,8 +80,7 @@ class Navbar extends NavTag
      *
      * @return LiTag MenuItem added
      */
-    public function addMenuItem($content, $enabled = true, $placement = 'left')
-    {
+    public function addMenuItem($content, $enabled = true, $placement = 'left') {
         $contentClass[] = 'nav-item';
         if ($enabled === false) {
             $content->setTagProperties(['aria-disabled' => 'true', 'tabindex' => '-1']);
@@ -96,10 +91,10 @@ class Navbar extends NavTag
             case 'ATag':
                 $content->addTagClass('nav-link');
                 if (
-                    basename(parse_url(
-                        $content->getTagProperty('href'),
-                        PHP_URL_PATH
-                    )) == basename(Document::phpSelf())
+                        basename(parse_url(
+                                        $content->getTagProperty('href'),
+                                        PHP_URL_PATH
+                                )) == basename(Document::phpSelf())
                 ) {
                     $contentClass[] = 'active';
                 }
@@ -124,8 +119,7 @@ class Navbar extends NavTag
      *
      * @return NavItemDropDown
      */
-    public function addDropDownMenu($label, $items, $placement = 'left')
-    {
+    public function addDropDownMenu($label, $items, $placement = 'left') {
         return $this->addMenuItem(new NavItemDropDown($label, $items), true, $placement);
     }
 
@@ -134,38 +128,32 @@ class Navbar extends NavTag
      *
      * @return \Ease\Html\DivTag navbar collapse
      */
-    public function navbarCollapse()
-    {
-        return new DivTag(
-            [$this->leftContent, $this->rightContent],
-            ['class' => 'collapse navbar-collapse', 'id' => $this->navBarName . 'SupportedContent']
-        );
+    public function navBarCollapse() {
+        return new \Ease\Html\DivTag($this->leftContent, ['class' => "collapse navbar-collapse", 'id' => $this->navBarName]);
     }
 
     /**
-     *
+     * Finaleize NavBar
      */
-    public function finalize()
-    {
+    public function finalize() {
         $this->addItem($this->navbarCollapse());
         parent::finalize();
     }
 
-    public function navBarToggler()
-    {
-        return new ButtonTag(
-            new SpanTag(
-                null,
-                ['class' => 'navbar-toggler-icon']
-            ),
-            [
-            'class' => 'navbar-toggler',
-            'type' => 'button',
-            'data-toggle' => 'collapse',
-            'data-target' => '#' . $this->navBarName . 'SupportedContent',
-            'aria-controls' => $this->navBarName . 'SupportedContent',
-            'aria-expanded' => 'false',
-            'aria-label' => _('Toggle navigation')]
-        );
+    /**
+     * NavBar Toggler
+     * 
+     * @return ButtonTag
+     */
+    public function navBarToggler() {
+        return new \Ease\Html\ButtonTag(new \Ease\Html\SpanTag(null, ['class' => 'navbar-toggler-icon']), [
+            'class' => "navbar-toggler",
+            'type' => "button",
+            'data-bs-toggle' => "collapse",
+            'data-bs-target' => "#" . $this->navBarName,
+            'aria-controls' => $this->navBarName,
+            'aria-expanded' => "false",
+            'aria-label' => _("Toggle navigation")
+        ]);
     }
 }
