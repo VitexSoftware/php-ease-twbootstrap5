@@ -63,8 +63,7 @@ class Navbar extends NavTag {
         $properties['class'] = trim('navbar ' . $originalClass);
         $this->navBarName = $name;
 
-        parent::__construct([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']),
-            $this->navBarToggler()], $properties);
+        parent::__construct([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], $properties);
         Part::twBootstrapize();
 
         $this->leftContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap navbar-expand mb-2 mb-lg-0', 'style' => "--bs-scroll-height: 100px;"]);
