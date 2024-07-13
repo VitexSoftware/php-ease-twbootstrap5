@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Twitter Bootrstap Container.
+ * Twitter Bootstrap Container.
  *
  * @author    Vitex <vitex@hippy.cz>
- * @copyright 2009-2022 Vitex@hippy.cz (G)
+ * @copyright 2009-2024 vitex@hippy.cz (G)
  */
 
 namespace Ease\TWB5;
@@ -12,7 +12,7 @@ namespace Ease\TWB5;
 class Container extends \Ease\Html\DivTag
 {
     /**
-     * Twitter Bootrstap Container.
+     * Twitter Bootstrap5 Container.
      *
      * @param mixed $content
      * @param array $properties of Container Row

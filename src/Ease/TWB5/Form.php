@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Formulář Bootstrapu.
+ * Bootstrap5 Form
  */
 
 namespace Ease\TWB5;

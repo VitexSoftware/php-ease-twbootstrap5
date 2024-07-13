@@ -5,7 +5,7 @@ namespace Ease\TWB5;
 use Ease\Html\DivTag;
 
 /**
- * Twitter Bootrstap5 Alert.
+ * Twitter Bootstrap5 Alert.
  *
  * @author    Vitex <vitex@hippy.cz>
  * @copyright 2019-2024 info@vitexsoftware.cz (G)
@@ -14,7 +14,7 @@ class Alert extends DivTag
 {
     /**
      * Bootstrap5's Alert
-     * @link https://getbootstrap.com/docs/5.0/components/alerts/
+     * @link https://getbootstrap.com/docs/5.3/components/alerts/
      *
      * @param string $type       success|info|warning|danger
      * @param mixed $content     to insert in

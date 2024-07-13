@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Twitter Bootrstap Row.
+ * Twitter Bootstrap Row.
  *
  * @author    Vitex <vitex@hippy.cz>
  * @copyright 2009-2024 Vitex@hippy.cz (G)
@@ -12,7 +12,7 @@ namespace Ease\TWB5;
 class Row extends \Ease\Html\DivTag
 {
     /**
-     * Twitter Bootrstap Row.
+     * Twitter Bootstrap Row.
      *
      * @see https://getbootstrap.com/docs/5.0/layout/grid/#row-columns
      *
