@@ -47,6 +47,18 @@ class Navbar extends NavTag {
     public $mainpage = '#';
 
     /**
+     * 
+     * @var boolean
+     */
+    public $expanded = true;
+
+    /**
+     * 
+     * @var string sm,md,lg etc. 
+     */
+    public $expandAt = 'md';
+
+    /**
      * App Menu
      *
      * @param string $brand
@@ -60,15 +72,30 @@ class Navbar extends NavTag {
             $originalClass = '';
         }
 
-        $properties['class'] = trim('navbar ' . $originalClass);
+        $properties['class'] = trim('navbar ' . $this->expandClass() . ' ' . $originalClass);
         $this->navBarName = $name;
 
-        parent::__construct([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']),
-            $this->navBarToggler()], $properties);
+        parent::__construct([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], $properties);
         Part::twBootstrapize();
 
-        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap navbar-expand mb-2 mb-lg-0', 'style' => "--bs-scroll-height: 100px;"]);
-        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ml-auto']); //TODO
+        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav me-auto mb-2 mb-'.$this->expandAt.'-0', 'style' => "--bs-scroll-height: 100px;"]);
+        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav me-auto']); //TODO
+    }
+
+    /**
+     * Return expand-class name
+     * 
+     * @return string
+     */
+    public function expandClass() {
+        if ($this->expanded) {
+            $parts[] = 'navbar';
+            $parts[] = 'expanded';
+            if (empty($this->expandAt) === false) {
+                $parts[] = $this->expandAt;
+            }
+        }
+        return implode('-', $parts);
     }
 
     /**
@@ -90,12 +117,7 @@ class Navbar extends NavTag {
         switch (Functions::baseClassName($content)) {
             case 'ATag':
                 $content->addTagClass('nav-link');
-                if (
-                        basename(parse_url(
-                                        $content->getTagProperty('href'),
-                                        PHP_URL_PATH
-                                )) == basename(Document::phpSelf())
-                ) {
+                if (basename(strval(parse_url($content->getTagProperty('href'),PHP_URL_PATH))) == basename(Document::phpSelf())) {
                     $contentClass[] = 'active';
                 }
 
