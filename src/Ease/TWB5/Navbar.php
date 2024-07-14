@@ -45,6 +45,12 @@ class Navbar extends NavTag {
     public $mainpage = '#';
 
     /**
+     * 
+     * @var \Ease\Html\DivTag
+     */
+    private $containerFluid;
+
+    /**
      * App Menu
      *
      * @param string $brand
@@ -59,20 +65,23 @@ class Navbar extends NavTag {
         }
 
         $properties['class'] = trim('navbar ' . $originalClass);
+        $properties['role'] = 'navigation';
         $this->navBarName = $name;
 
-        parent::__construct([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], $properties);
+        parent::__construct(null, $properties);
         Part::twBootstrapize();
 
         $this->leftContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap navbar-expand mb-2 mb-lg-0', 'style' => "--bs-scroll-height: 100px;"]);
         $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ml-auto']); //TODO
+
+        $this->containerFluid = $this->addItem(new \Ease\Html\DivTag([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], ['class' => 'container-fluid']));
     }
 
     /**
-     * Add new Menu Item into navbar
+     * Add new Menu Item into NavBar
      *
      * @param mixed   $content   to insert in menu
-     * @param boolean $enabled   false give you gray nonclickable menu item
+     * @param boolean $enabled   false give you gray NonClickable menu item
      * @param string  $placement "left" is default
      *
      * @return LiTag MenuItem added
@@ -87,12 +96,7 @@ class Navbar extends NavTag {
         switch (Functions::baseClassName($content)) {
             case 'ATag':
                 $content->addTagClass('nav-link');
-                if (
-                        basename(parse_url(
-                                        $content->getTagProperty('href'),
-                                        PHP_URL_PATH
-                                )) == basename(Document::phpSelf())
-                ) {
+                if (!empty($this->getTagProperty('href')) && strstr($this->getTagProperty('href'), '/') && basename(parse_url($content->getTagProperty('href'), PHP_URL_PATH)) == basename(Document::phpSelf())) {
                     $contentClass[] = 'active';
                 }
 
@@ -108,9 +112,9 @@ class Navbar extends NavTag {
     }
 
     /**
-     * Add Dropdown menu to nav
+     * Add DropDown menu to nav
      *
-     * @param string $label     submenu label
+     * @param string $label     SubMenu label
      * @param array  $items     ['url'=>'label','url2'=>'label2','divider1'=>'',...]
      * @param string $placement "left" is default
      *
@@ -121,24 +125,24 @@ class Navbar extends NavTag {
     }
 
     /**
-     * Navbar collapse helper
+     * NavBar collapse helper
      *
-     * @return \Ease\Html\DivTag navbar collapse
+     * @return \Ease\Html\DivTag NavBar collapse
      */
     public function navBarCollapse() {
         return new \Ease\Html\DivTag($this->leftContent, ['class' => "collapse navbar-collapse", 'id' => $this->navBarName]);
     }
 
     /**
-     * Finaleize NavBar
+     * Finalize NavBar
      */
     public function finalize() {
-        $this->addItem($this->navbarCollapse());
+        $this->containerFluid->addItem($this->navbarCollapse());
         parent::finalize();
     }
 
     /**
-     * NavBar Toggler
+     * NavBar Toggle
      * 
      * @return ButtonTag
      */
@@ -146,11 +150,26 @@ class Navbar extends NavTag {
         return new \Ease\Html\ButtonTag(new \Ease\Html\SpanTag(null, ['class' => 'navbar-toggler-icon']), [
             'class' => "navbar-toggler",
             'type' => "button",
-            'data-bs-toggle' => "collapse",
+            'data-bs-toggle' => "dropdown",
             'data-bs-target' => "#" . $this->navBarName,
             'aria-controls' => $this->navBarName,
             'aria-expanded' => "false",
             'aria-label' => _("Toggle navigation")
         ]);
+    }
+
+    /**
+     * Search Form for NavBar
+     * 
+     * @param string $label
+     * @param array  $formProperties
+     * 
+     * @return \Ease\TWB5\Form
+     */
+    public function addSearchForm($label = 'Search', $formProperties = []) {
+        $formProperties['role'] = 'search';
+        $input = new \Ease\Html\InputTag('', '', ['class' => "form-control me-2", 'type' => "search", 'placeholder' => "Search", 'aria-label' => $label]);
+        $button = new \Ease\Html\ButtonTag($label, ['class' => "btn btn-outline-success", 'type' => "submit"]);
+        return $this->addItem(new \Ease\TWB5\Form($formProperties, ['class' => "d-flex", 'role' => "search"], [$input, $button]));
     }
 }

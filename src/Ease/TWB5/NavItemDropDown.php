@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Ease\TWB5;
 
 /**
@@ -13,8 +7,8 @@ namespace Ease\TWB5;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class NavItemDropDown extends \Ease\Html\DivTag
-{
+class NavItemDropDown extends \Ease\Html\LiTag {
+
     /**
      *
      * @var \Ease\Html\DivTag
@@ -22,21 +16,18 @@ class NavItemDropDown extends \Ease\Html\DivTag
     private $dropdownMenu = null;
 
     /**
-     * Dropdown menu
+     * DropDown menu
      *
      * @param string $heading
      * @param array  $items
      */
-    public function __construct($heading, $items = [])
-    {
+    public function __construct($heading, $items = []) {
         $properties['class'] = 'nav-item dropdown';
-        $handle              = $this->handle($heading);
-        parent::__construct($handle, $properties);
+        $handle = $this->handle($heading);
+        parent::__construct(null, $properties);
+        parent::addItem($handle);
 
-        $this->dropdownMenu = new \Ease\Html\DivTag(
-            null,
-            ['class' => 'dropdown-menu', 'aria-labelledby' => $handle->getTagID()]
-        );
+        $this->dropdownMenu = new \Ease\Html\UlTag(null, ['class' => 'dropdown-menu']);
 
         if (!empty($items)) {
             foreach ($items as $url => $label) {
@@ -46,20 +37,20 @@ class NavItemDropDown extends \Ease\Html\DivTag
     }
 
     /**
-     * Dropdown handle
+     * DropDown handle
      *
      * @param string $heading
      *
      * @return \Ease\Html\ATag
      */
-    public function handle($heading)
-    {
+    public function handle($heading) {
         $handle = new \Ease\Html\ATag(
-            '#',
-            $heading,
-            ['class' => 'nav-link dropdown-toggle', 'data-toggle' => 'dropdown',
+                '#',
+                $heading,
+                ['class' => 'nav-link dropdown-toggle',
             'role' => 'button',
-            'aria-haspopup' => 'true',
+            'data-bs-toggle' => 'dropdown',
+            'role' => 'button',
             'aria-expanded' => 'false']
         );
         $handle->setTagID($heading);
@@ -72,24 +63,22 @@ class NavItemDropDown extends \Ease\Html\DivTag
      * @param string $label or empty for divider
      * @param string $url
      */
-    public function addDropdownItem($label, $url)
-    {
+    public function addDropdownItem($label, $url) {
         if (empty($label)) {
             $this->dropdownMenu->addItem(new \Ease\Html\DivTag(
-                null,
-                ['class' => 'dropdown-divider']
+                            null,
+                            ['class' => 'dropdown-divider']
             ));
         } else {
             $this->dropdownMenu->addItem(new \Ease\Html\ATag(
-                $url,
-                $label,
-                ['class' => 'dropdown-item']
+                            $url,
+                            $label,
+                            ['class' => 'dropdown-item']
             ));
         }
     }
 
-    public function finalize()
-    {
+    public function finalize() {
         $this->addItem($this->dropdownMenu);
     }
 }
