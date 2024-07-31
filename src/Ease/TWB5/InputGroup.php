@@ -31,7 +31,7 @@ class InputGroup extends \Ease\Container
         if ($heading) {
             $this->addItem(new \Ease\Html\LabelTag($input->getTagID(), $heading, ['class' => 'form-label']));
         }
-
+        $input->addTagClass('form-control');
         $this->inputGroup = $this->addItem(new \Ease\Html\DivTag('', ['class' => 'input-group']));
         if ($preText) {
             $pre = new \Ease\Html\SpanTag($preText, ['class' => 'input-group-text']);
