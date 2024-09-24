@@ -7,9 +7,10 @@ namespace Ease\TWB5;
  *
  * @author vitex
  */
-class FormGroup extends \Ease\Html\DivTag {
-
-    public function __construct($label,\Ease\Html\Input $input, $desc = '') {
+class FormGroup extends \Ease\Html\DivTag
+{
+    public function __construct($label, \Ease\Html\Input $input, $desc = '')
+    {
         $id = $input->setTagID();
         parent::__construct(new \Ease\Html\LabelTag($id, $label));
         $input->addTagClass('form-control');
