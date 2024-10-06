@@ -1,11 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Ease\TWB5;
 
 use Ease\Html\DivTag;
 
 /**
- * Description of Panel
+ * Description of Panel.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
@@ -13,36 +26,30 @@ class Panel extends Card
 {
     /**
      * Hlavička panelu.
-     *
-     * @var \Ease\Html\DivTag
      */
-    public $header = null;
+    public \Ease\Html\DivTag $header = null;
 
     /**
      * Tělo panelu.
-     *
-     * @var \Ease\Html\DivTag
      */
-    public $body = null;
+    public \Ease\Html\DivTag $body = null;
 
     /**
      * Patička panelu.
-     *
-     * @var \Ease\Html\DivTag
      */
-    public $footer = null;
+    public \Ease\Html\DivTag $footer = null;
 
     /**
      * Typ Panelu.
      *
      * @var string succes|wanring|info|danger
      */
-    public $type = 'default';
+    public string $type = 'default';
 
     /**
      * Panel Twitter Bootstrapu.
      *
-     * @param string|mixed $heading
+     * @param mixed|string $heading
      * @param string       $type    succes|wanring|info|danger
      * @param mixes        $body    tělo panelu
      * @param mixed        $footer  patička panelu. FALSE = nezobrazit vůbec
@@ -53,7 +60,7 @@ class Panel extends Card
         $body = null,
         $footer = null
     ) {
-        parent::__construct(null, $type ? ['class' => 'bg-' . $type] : null);
+        parent::__construct(null, $type ? ['class' => 'bg-'.$type] : null);
         $this->header = new DivTag($heading, ['class' => 'card-header']);
         $this->body = new DivTag($body, ['class' => 'card-body']);
         $this->footer = new DivTag($footer, ['class' => 'card-footer']);
@@ -74,14 +81,16 @@ class Panel extends Card
         return $added;
     }
 
-    public function finalize()
+    public function finalize(): void
     {
         if ($this->header->getItemsCount()) {
             parent::addItem($this->header);
         }
+
         if ($this->body->getItemsCount()) {
             parent::addItem($this->body);
         }
+
         if ($this->footer->getItemsCount()) {
             parent::addItem($this->footer);
         }

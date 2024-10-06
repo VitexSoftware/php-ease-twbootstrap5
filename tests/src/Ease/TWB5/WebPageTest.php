@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Test\Ease\TWB5;
 
 use Ease\TWB5\WebPage;
@@ -9,10 +22,7 @@ use Ease\TWB5\WebPage;
  */
 class WebPageTest extends \Test\Ease\WebPageTest
 {
-    /**
-     * @var WebPage
-     */
-    protected $object;
+    protected WebPage $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -29,14 +39,14 @@ class WebPageTest extends \Test\Ease\WebPageTest
      */
     protected function tearDown(): void
     {
-
     }
 
     /**
-     * @covers Ease\TWB5\WebPage::addToHeader
+     * @covers \Ease\TWB5\WebPage::addToHeader
+     *
      * @todo   Implement testaddToHeader().
      */
-    public function testaddToHeader()
+    public function testaddToHeader(): void
     {
         $this->assertEquals('', $this->object->addToHeader());
         // Remove the following lines when you implement this test.
@@ -44,10 +54,11 @@ class WebPageTest extends \Test\Ease\WebPageTest
     }
 
     /**
-     * @covers Ease\TWB5\WebPage::addToMain
+     * @covers \Ease\TWB5\WebPage::addToMain
+     *
      * @todo   Implement testaddToMain().
      */
-    public function testaddToMain()
+    public function testaddToMain(): void
     {
         $this->assertEquals('', $this->object->addToMain());
         // Remove the following lines when you implement this test.
@@ -55,10 +66,11 @@ class WebPageTest extends \Test\Ease\WebPageTest
     }
 
     /**
-     * @covers Ease\TWB5\WebPage::addToFooter
+     * @covers \Ease\TWB5\WebPage::addToFooter
+     *
      * @todo   Implement testaddToFooter().
      */
-    public function testaddToFooter()
+    public function testaddToFooter(): void
     {
         $this->assertEquals('', $this->object->addToFooter());
         // Remove the following lines when you implement this test.
@@ -66,10 +78,11 @@ class WebPageTest extends \Test\Ease\WebPageTest
     }
 
     /**
-     * @covers Ease\TWB5\WebPage::finalize
+     * @covers \Ease\TWB5\WebPage::finalize
+     *
      * @todo   Implement testfinalize().
      */
-    public function testfinalize()
+    public function testfinalize(): void
     {
         $this->assertEquals('', $this->object->finalize());
         // Remove the following lines when you implement this test.

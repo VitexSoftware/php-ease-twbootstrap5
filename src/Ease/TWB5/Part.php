@@ -1,9 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Twitter Bootstrap5 common class.
+ * This file is part of the EaseTWB5 package
  *
- * @author Vitex <vitex@hippy.cz>
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\TWB5;
@@ -26,6 +33,7 @@ class Part extends \Ease\Part
     {
         \Ease\WebPage::singleton()->includeCSS(\Ease\WebPage::singleton()->bootstrapCSS);
         \Ease\WebPage::singleton()->includeJavaScript(\Ease\WebPage::singleton()->bootstrapJavaScript);
+
         return true;
     }
 }

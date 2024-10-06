@@ -3,23 +3,27 @@
 declare(strict_types=1);
 
 /**
- * Badge
+ * This file is part of the EaseTWB5 package
  *
- * @author     Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2023 Vitex Software
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\TWB5;
 
 /**
- * Description of Badge
+ * Description of Badge.
  *
  * @author vitex
  */
 class Badge extends \Ease\Html\SpanTag
 {
     /**
-     * Badge Compatibily Class
+     * Badge Compatibily Class.
      *
      * @param mixed  $content
      * @param string $type
@@ -28,6 +32,6 @@ class Badge extends \Ease\Html\SpanTag
     public function __construct($content = null, $type = 'default', $properties = [])
     {
         parent::__construct($content, $properties);
-        $this->addTagClass('badge bg-' . $type);
+        $this->addTagClass('badge bg-'.$type);
     }
 }

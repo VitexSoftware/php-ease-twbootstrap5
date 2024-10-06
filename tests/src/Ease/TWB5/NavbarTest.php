@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Test\Ease\TWB5;
 
 use Ease\TWB5\Navbar;
@@ -9,10 +22,7 @@ use Ease\TWB5\Navbar;
  */
 class NavbarTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var Navbar
-     */
-    protected $object;
+    protected Navbar $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -29,14 +39,14 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
      */
     protected function tearDown(): void
     {
-
     }
 
     /**
-     * @covers Ease\TWB5\Navbar::addMenuItem
+     * @covers \Ease\TWB5\Navbar::addMenuItem
+     *
      * @todo   Implement testaddMenuItem().
      */
-    public function testaddMenuItem()
+    public function testaddMenuItem(): void
     {
         $this->assertEquals('', $this->object->addMenuItem());
         // Remove the following lines when you implement this test.
@@ -44,10 +54,11 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Ease\TWB5\Navbar::addDropDownMenu
+     * @covers \Ease\TWB5\Navbar::addDropDownMenu
+     *
      * @todo   Implement testaddDropDownMenu().
      */
-    public function testaddDropDownMenu()
+    public function testaddDropDownMenu(): void
     {
         $this->assertEquals('', $this->object->addDropDownMenu());
         // Remove the following lines when you implement this test.
@@ -55,10 +66,11 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Ease\TWB5\Navbar::navbarCollapse
+     * @covers \Ease\TWB5\Navbar::navbarCollapse
+     *
      * @todo   Implement testnavbarCollapse().
      */
-    public function testnavbarCollapse()
+    public function testnavbarCollapse(): void
     {
         $this->assertEquals('', $this->object->navbarCollapse());
         // Remove the following lines when you implement this test.
@@ -66,10 +78,11 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Ease\TWB5\Navbar::finalize
+     * @covers \Ease\TWB5\Navbar::finalize
+     *
      * @todo   Implement testfinalize().
      */
-    public function testfinalize()
+    public function testfinalize(): void
     {
         $this->assertEquals('', $this->object->finalize());
         // Remove the following lines when you implement this test.
@@ -77,10 +90,11 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Ease\TWB5\Navbar::navBarToggler
+     * @covers \Ease\TWB5\Navbar::navBarToggler
+     *
      * @todo   Implement testnavBarToggler().
      */
-    public function testnavBarToggler()
+    public function testnavBarToggler(): void
     {
         $this->assertEquals('', $this->object->navBarToggler());
         // Remove the following lines when you implement this test.

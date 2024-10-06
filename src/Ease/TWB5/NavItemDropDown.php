@@ -1,22 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Ease\TWB5;
 
 /**
- * Description of Dropdown
+ * Description of Dropdown.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 class NavItemDropDown extends \Ease\Html\LiTag
 {
-    /**
-     *
-     * @var \Ease\Html\DivTag
-     */
-    private $dropdownMenu = null;
+    private \Ease\Html\UlTag $dropdownMenu;
 
     /**
-     * DropDown menu
+     * DropDown menu.
      *
      * @param string $heading
      * @param array  $items
@@ -38,7 +47,7 @@ class NavItemDropDown extends \Ease\Html\LiTag
     }
 
     /**
-     * DropDown handle
+     * DropDown handle.
      *
      * @param string $heading
      *
@@ -50,38 +59,38 @@ class NavItemDropDown extends \Ease\Html\LiTag
             '#',
             $heading,
             ['class' => 'nav-link dropdown-toggle',
-            'role' => 'button',
-            'data-bs-toggle' => 'dropdown',
-            'role' => 'button',
-            'aria-expanded' => 'false']
+                'data-bs-toggle' => 'dropdown',
+                'role' => 'button',
+                'aria-expanded' => 'false'],
         );
         $handle->setTagID($heading);
+
         return $handle;
     }
 
     /**
-     * add one dropdown item
+     * add one dropdown item.
      *
      * @param string $label or empty for divider
      * @param string $url
      */
-    public function addDropdownItem($label, $url)
+    public function addDropdownItem($label, $url): void
     {
         if (empty($label)) {
             $this->dropdownMenu->addItem(new \Ease\Html\DivTag(
                 null,
-                ['class' => 'dropdown-divider']
+                ['class' => 'dropdown-divider'],
             ));
         } else {
             $this->dropdownMenu->addItem(new \Ease\Html\ATag(
                 $url,
                 $label,
-                ['class' => 'dropdown-item']
+                ['class' => 'dropdown-item'],
             ));
         }
     }
 
-    public function finalize()
+    public function finalize(): void
     {
         $this->addItem($this->dropdownMenu);
     }

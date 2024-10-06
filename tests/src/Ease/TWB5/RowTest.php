@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Test\Ease\TWB5;
 
 use Ease\TWB5\Row;
@@ -9,11 +22,7 @@ use Ease\TWB5\Row;
  */
 class RowTest extends \PHPUnit\Framework\TestCase
 {
-
-    /**
-     * @var Row
-     */
-    protected $object;
+    protected Row $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -30,14 +39,14 @@ class RowTest extends \PHPUnit\Framework\TestCase
      */
     protected function tearDown(): void
     {
-        
     }
 
     /**
-     * @covers Ease\TWB5\Row::addColumn
+     * @covers \Ease\TWB5\Row::addColumn
+     *
      * @todo   Implement testaddColumn().
      */
-    public function testaddColumn()
+    public function testaddColumn(): void
     {
         $this->assertEquals('', $this->object->addColumn());
         // Remove the following lines when you implement this test.

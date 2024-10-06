@@ -1,15 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Twitter Bootstrap5 Table class.
+ * This file is part of the EaseTWB5 package
  *
- * @author Vitex <vitex@hippy.cz>
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\TWB5;
 
 /**
- * Description of Table
+ * Description of Table.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
@@ -23,7 +30,7 @@ class Table extends \Ease\Html\TableTag
      */
     public function __construct($content = null, $properties = [])
     {
-        parent::__construct($properties, $content);
+        parent::__construct($content, $properties);
         $this->addTagClass('table');
     }
 }

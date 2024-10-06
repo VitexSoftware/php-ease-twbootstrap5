@@ -1,6 +1,12 @@
-php-vitexsoftware-ease-bootstrap5 (0.1) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-bootstrap5 (0.1.0) UNRELEASED; urgency=medium
+
+  * v0.1.0 release
+
+ -- vitex <info@vitexsoftware.cz>  Sun, 06 Oct 2024 23:37:03 +0200
+
+php-vitexsoftware-ease-bootstrap5 (0.1) unstable; urgency=medium
 
   [ Vítězslav Dvořák ]
   * First release
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Wed, 17 Mar 2021 21:27:03 +0100
+ -- vitex <info@vitexsoftware.cz>  Sun, 06 Oct 2024 23:36:44 +0200

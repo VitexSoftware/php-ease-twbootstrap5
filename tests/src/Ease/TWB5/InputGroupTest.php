@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Test\Ease\TWB5;
 
 use Ease\TWB5\InputGroup;
@@ -9,11 +22,7 @@ use Ease\TWB5\InputGroup;
  */
 class InputGroupTest extends \PHPUnit\Framework\TestCase
 {
-
-    /**
-     * @var InputGroup
-     */
-    protected $object;
+    protected InputGroup $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -30,6 +39,5 @@ class InputGroupTest extends \PHPUnit\Framework\TestCase
      */
     protected function tearDown(): void
     {
-        
     }
 }

@@ -1,10 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Twitter Bootstrap Container.
+ * This file is part of the EaseTWB5 package
  *
- * @author    Vitex <vitex@hippy.cz>
- * @copyright 2009-2024 vitex@hippy.cz (G)
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\TWB5;

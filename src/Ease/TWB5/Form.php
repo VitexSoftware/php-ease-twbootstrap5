@@ -1,17 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Bootstrap5 Form
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\TWB5;
 
 class Form extends \Ease\Html\Form
 {
-    public $formDiv = null;
+    public $formDiv;
 
     /**
-     * Bootstrap Form
+     * Bootstrap Form.
      *
      * @see https://getbootstrap.com/docs/4.1/components/forms/
      *
@@ -43,7 +52,7 @@ class Form extends \Ease\Html\Form
             $caption,
             $input,
             $placeholder,
-            $helptext
+            $helptext,
         ));
     }
 
@@ -57,17 +66,18 @@ class Form extends \Ease\Html\Form
      */
     public function &addItem($pageItem, $pageItemName = null)
     {
-        if (is_object($pageItem) && method_exists($pageItem, 'setTagClass')) {
-            if (strtolower($pageItem->getTagType()) == 'select') {
+        if (\is_object($pageItem) && method_exists($pageItem, 'setTagClass')) {
+            if (strtolower($pageItem->getTagType()) === 'select') {
                 $pageItem->setTagClass(trim(str_replace(
                     'form_control',
                     '',
-                    $pageItem->getTagClass() . ' form-control'
+                    $pageItem->getTagClass().' form-control',
                 )));
-            } elseif ($pageItem->getTagProperty('type') == 'file') {
+            } elseif ($pageItem->getTagProperty('type') === 'file') {
                 $pageItem->setTagClass('form-control-file');
             }
         }
+
         $added = $this->formDiv->addItem($pageItem, $pageItemName);
 
         return $added;

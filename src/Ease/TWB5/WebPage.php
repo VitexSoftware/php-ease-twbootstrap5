@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseTWB5 package
+ *
+ * https://github.com/VitexSoftware/php-ease-twbootstrap5/
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Ease\TWB5;
 
 /**
@@ -8,50 +21,41 @@ namespace Ease\TWB5;
  * @author     Vítězslav Dvořák <vitex@hippy.cz>
  * @copyright  2022-2024 info@vitexsoftware.cz (G)
  *
- * @link       https://getbootstrap.com/docs/5.2/getting-started/introduction/
+ * @see       https://getbootstrap.com/docs/5.2/getting-started/introduction/
  */
 class WebPage extends \Ease\WebPage
 {
     /**
-     * Where to look for bootstrap stylesheet
+     * Where to look for bootstrap stylesheet.
+     *
      * @var string path or url
      */
-    public $bootstrapCSS = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
+    public string $bootstrapCSS = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
 
     /**
-     * Where to look for bootstrap stylesheet theme
+     * Where to look for bootstrap stylesheet theme.
+     *
      * @var string path or url
      */
-    public $bootstrapThemeCSS = '';
+    public string $bootstrapThemeCSS = '';
 
     /**
-     * Where to look for bootstrap stylesheet scripts
+     * Where to look for bootstrap stylesheet scripts.
+     *
      * @var string path or url
      */
-    public $bootstrapJavaScript = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
+    public string $bootstrapJavaScript = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
 
-    /**
-     *
-     * @var type
-     */
-    public $header = null;
+    public \Ease\Html\HeaderTag $header;
 
-    /**
-     *
-     * @var type
-     */
-    public $main = null;
+    public \Ease\Html\MainTag $main;
 
-    /**
-     *
-     * @var type
-     */
-    public $footer = null;
+    public \Ease\Html\FooterTag $footer;
 
     /**
      * Stránka s podporou pro twitter bootstrap.
      *
-     * @param string   $pageTitle
+     * @param string $pageTitle
      */
     public function __construct($pageTitle = null)
     {
@@ -59,49 +63,46 @@ class WebPage extends \Ease\WebPage
         Part::twBootstrapize();
 
         $this->head->addItem(
-            '<meta charset="utf-8"/>' .
-            '<meta name="viewport" content="width=device-width, initial-scale=1"/>'
+            '<meta charset="utf-8"/>'.
+            '<meta name="viewport" content="width=device-width, initial-scale=1"/>',
         );
+        $this->header = new \Ease\Html\HeaderTag();
+        $this->main = new \Ease\Html\MainTag();
+        $this->footer = new \Ease\Html\FooterTag();
     }
 
     public function addToHeader($content)
     {
-        if (is_null($this->header)) {
-            $this->header = new \Ease\Html\HeaderTag();
-        }
         return $this->header->addItem($content);
     }
 
     public function addToMain($content)
     {
-        if (is_null($this->main)) {
-            $this->main = new \Ease\Html\MainTag();
-        }
         return $this->main->addItem($content);
     }
 
     public function addToFooter($content)
     {
-        if (is_null($this->footer)) {
-            $this->footer = new \Ease\Html\FooterTag();
-        }
         return $this->footer->addItem($content);
     }
 
     /**
-     * Assembly page
+     * Assembly page.
      */
     public function finalize(): void
     {
-        if (is_null($this->header) === false) {
+        if ((null === $this->header) === false) {
             $this->addAsFirst($this->header);
         }
-        if (is_null($this->main) === false) {
+
+        if ((null === $this->main) === false) {
             $this->addItem($this->main);
         }
-        if (is_null($this->footer) === false) {
+
+        if ((null === $this->footer) === false) {
             $this->addItem($this->footer);
         }
+
         parent::finalize();
     }
 }

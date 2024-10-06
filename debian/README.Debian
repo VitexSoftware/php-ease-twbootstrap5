@@ -1,7 +1,7 @@
-Ease framework TWB4 for Debian
+Ease framework TWB5 for Debian
 ------------------------------
     
-    Is installed by standard way in /usr/share/php/EaseTWB4
+    Is installed by standard way in /usr/share/php/EaseTWB5
 
 Then you can use system wide installed libraries in your package using this
 minimal template of composer.json
@@ -16,7 +16,7 @@ minimal template of composer.json
     "require": {
         "deb/ease-core": "*",
         "deb/ease-html": "*",
-        "deb/ease-bootstrap4": "*"
+        "deb/ease-bootstrap5": "*"
     },
     "repositories": [
         {
@@ -35,7 +35,7 @@ minimal template of composer.json
         },
         {
             "type": "path",
-            "url": "/usr/share/php/EaseTWB4",
+            "url": "/usr/share/php/EaseTWB5",
             "options": {
                 "symlink": true
             }
@@ -45,7 +45,13 @@ minimal template of composer.json
 
 ```
 
+```shell
+wget -qO- https://repo.vitexsoftware.com/keyring.gpg | sudo tee /etc/apt/trusted.gpg.d/vitexsoftware.gpg
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/vitexsoftware.gpg]  https://repo.vitexsoftware.com  $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
+sudo apt update
 
+sudo apt install php-vitexsoftware-ease-bootstrap5
+```
 
  -- Vítězslav Dvořák <vitex@hippy.cz>  Ne říj 21 15:17:56 CEST 2012
 
