@@ -91,7 +91,7 @@ class WebPage extends \Ease\WebPage
     /**
      * Assembly page
      */
-    public function finalize()
+    public function finalize(): void
     {
         if (is_null($this->header) === false) {
             $this->addAsFirst($this->header);
