@@ -45,11 +45,8 @@ class WebPage extends \Ease\WebPage
      * @var string path or url
      */
     public string $bootstrapJavaScript = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
-
     public \Ease\Html\HeaderTag $header;
-
     public \Ease\Html\MainTag $main;
-
     public \Ease\Html\FooterTag $footer;
 
     /**

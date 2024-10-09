@@ -42,13 +42,15 @@ class Navbar extends NavTag
      * Brand link destination.
      */
     public string $mainpage = '#';
-
     private string $navBarName = 'nav';
-
     private \Ease\Html\DivTag $containerFluid;
 
     /**
      * App Menu.
+     *
+     * @param null|mixed $brand
+     * @param mixed      $name
+     * @param mixed      $properties
      */
     public function __construct($brand = null, $name = 'navbar', $properties = [])
     {
@@ -166,8 +168,6 @@ class Navbar extends NavTag
      *
      * @param string $label
      * @param array  $formProperties
-     *
-     * @return \Ease\TWB5\Form
      */
     public function addSearchForm($label = 'Search', $formProperties = []): \Ease\TWB5\Form
     {

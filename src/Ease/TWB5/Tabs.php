@@ -29,9 +29,7 @@ class Tabs extends \Ease\Container
      * Navbar Identification.
      */
     public string $id;
-
     private array $tabs = [];
-
     private string $activeTab = '';
 
     /**
