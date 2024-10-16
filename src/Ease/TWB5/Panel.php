@@ -25,34 +25,34 @@ use Ease\Html\DivTag;
 class Panel extends Card
 {
     /**
-     * Hlavička panelu.
+     * Panel Head.
      */
-    public \Ease\Html\DivTag $header = null;
+    public \Ease\Html\DivTag $header;
 
     /**
-     * Tělo panelu.
+     * Panel's body.
      */
-    public \Ease\Html\DivTag $body = null;
+    public \Ease\Html\DivTag $body;
 
     /**
-     * Patička panelu.
+     * footer content.
      */
-    public \Ease\Html\DivTag $footer = null;
+    public \Ease\Html\DivTag $footer;
 
     /**
-     * Typ Panelu.
+     * Panel type.
      *
-     * @var string succes|wanring|info|danger
+     * @var string success|warning|info|danger
      */
     public string $type = 'default';
 
     /**
-     * Panel Twitter Bootstrapu.
+     * Twitter Bootstrap Panel.
      *
      * @param mixed|string $heading
-     * @param string       $type    succes|wanring|info|danger
-     * @param mixes        $body    tělo panelu
-     * @param mixed        $footer  patička panelu. FALSE = nezobrazit vůbec
+     * @param string       $type    success|warning|info|danger
+     * @param mixed        $body    panel body
+     * @param mixed        $footer  panel foot FALSE = do not show at all
      */
     public function __construct(
         $heading = null,
@@ -94,5 +94,6 @@ class Panel extends Card
         if ($this->footer->getItemsCount()) {
             parent::addItem($this->footer);
         }
+        parent::finalize();
     }
 }
