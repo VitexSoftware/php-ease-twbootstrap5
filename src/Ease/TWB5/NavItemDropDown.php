@@ -16,7 +16,7 @@ declare(strict_types=1);
 namespace Ease\TWB5;
 
 /**
- * Description of Dropdown.
+ * Description of DropDown.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
@@ -93,5 +93,6 @@ class NavItemDropDown extends \Ease\Html\LiTag
     public function finalize(): void
     {
         $this->addItem($this->dropdownMenu);
+        parent::finalize();
     }
 }
