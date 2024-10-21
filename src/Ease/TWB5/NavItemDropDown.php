@@ -69,7 +69,7 @@ class NavItemDropDown extends \Ease\Html\LiTag
     }
 
     /**
-     * add one dropdown item.
+     * add one DropDown item.
      *
      * @param string $label or empty for divider
      * @param string $url
@@ -77,16 +77,12 @@ class NavItemDropDown extends \Ease\Html\LiTag
     public function addDropdownItem($label, $url): void
     {
         if (empty($label)) {
-            $this->dropdownMenu->addItem(new \Ease\Html\DivTag(
+            $this->dropdownMenu->addItemSmart(new \Ease\Html\DivTag(
                 null,
                 ['class' => 'dropdown-divider'],
             ));
         } else {
-            $this->dropdownMenu->addItem(new \Ease\Html\ATag(
-                $url,
-                $label,
-                ['class' => 'dropdown-item'],
-            ));
+            $this->dropdownMenu->addItemSmart(new \Ease\Html\ATag($url,$label,['class' => 'dropdown-item']));
         }
     }
 
