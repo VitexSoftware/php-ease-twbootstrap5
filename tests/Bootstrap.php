@@ -26,4 +26,4 @@ if ((\PHP_SAPI !== 'cli') && (session_status() === 'PHP_SESSION_NONE')) {
 
 \Ease\Locale::singleton('cs_CZ');
 \Ease\WebPage::singleton();
-\Ease\Shared::user(\Ease\User::singleton(null, '\Ease\User'));
+\Ease\Shared::user(\Ease\User::singleton());

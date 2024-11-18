@@ -32,9 +32,9 @@ class Alert extends DivTag
      *
      * @param string $type       success|info|warning|danger
      * @param mixed  $content    to insert in
-     * @param array  $properties additional
+     * @param array<string,string>  $properties<string,string> additional
      */
-    public function __construct($type, $content = null, $properties = [])
+    public function __construct(string $type, $content = null, $properties = [])
     {
         $properties['role'] = 'alert';
         parent::__construct($content, $properties);

@@ -26,7 +26,7 @@ class Table extends \Ease\Html\TableTag
      * TWB4 Table.
      *
      * @param mixed $content    tag content
-     * @param array $properties table tag options
+     * @param array<string,string> $properties table tag options
      */
     public function __construct($content = null, $properties = [])
     {

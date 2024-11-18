@@ -22,7 +22,10 @@ use Ease\TWB5\SubmitButton;
  */
 class SubmitButtonTest extends \Test\Ease\Html\ButtonTagTest
 {
-    protected SubmitButton $object;
+    /**
+     * @var SubmitButton
+     */
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

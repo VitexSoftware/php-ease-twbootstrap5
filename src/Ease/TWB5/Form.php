@@ -15,17 +15,19 @@ declare(strict_types=1);
 
 namespace Ease\TWB5;
 
+use Ease\Embedable;
+
 class Form extends \Ease\Html\Form
 {
-    public $formDiv;
+    public \Ease\Html\DivTag  $formDiv;
 
     /**
      * Bootstrap Form.
      *
      * @see https://getbootstrap.com/docs/4.1/components/forms/
      *
-     * @param array $formProperties    FormTag properties eg. ['enctype' => 'multipart/form-data']
-     * @param array $formDivProperties FormDiv propertise eg. ['class'=>'form-row align-items-center']
+     * @param array<string,string> $formProperties    FormTag properties eg. ['enctype' => 'multipart/form-data']
+     * @param array<string,string> $formDivProperties FormDiv propertise eg. ['class'=>'form-row align-items-center']
      * @param mixed $formContents      Any other initial content
      */
     public function __construct($formProperties = [], $formDivProperties = [], $formContents = null)
@@ -35,12 +37,12 @@ class Form extends \Ease\Html\Form
     }
 
     /**
-     * Vloží prvek do formuláře.
+     * Inserts an element into the form.
      *
-     * @param mixed  $input       Vstupní prvek
-     * @param string $caption     Popisek
-     * @param string $placeholder předvysvětlující text
-     * @param string $helptext    Dodatečná nápověda
+     * @param mixed  $input       Input element
+     * @param string $caption     Caption
+     * @param string $placeholder Placeholder text
+     * @param string $helptext    Additional help text
      */
     public function addInput(
         $input,
@@ -57,14 +59,14 @@ class Form extends \Ease\Html\Form
     }
 
     /**
-     * Vloží další element do formuláře a upraví mu css.
+     * Inserts another element into the form and adjusts its CSS.
      *
-     * @param mixed  $pageItem     hodnota nebo EaseObjekt s metodou draw()
-     * @param string $pageItemName Pod tímto jménem je objekt vkládán do stromu
+     * @param mixed  $pageItem     Value or EaseObject with draw() method
+     * @param string $pageItemName The name under which the object is inserted into the tree
      *
-     * @return pointer Odkaz na vložený objekt
+     * @return Embedable|null Reference to the inserted object
      */
-    public function &addItem($pageItem, $pageItemName = null)
+    public function &addItem($pageItem, $pageItemName = null): Embedable|null
     {
         if (\is_object($pageItem) && method_exists($pageItem, 'setTagClass')) {
             if (strtolower($pageItem->getTagType()) === 'select') {

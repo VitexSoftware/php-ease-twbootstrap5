@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace Ease\TWB5;
 
+use Ease\Embedable;
 use Ease\Html\DivTag;
 
 /**
@@ -27,17 +28,17 @@ class Panel extends Card
     /**
      * Panel Head.
      */
-    public \Ease\Html\DivTag $header;
+    public DivTag $header;
 
     /**
      * Panel's body.
      */
-    public \Ease\Html\DivTag $body;
+    public DivTag $body;
 
     /**
      * footer content.
      */
-    public \Ease\Html\DivTag $footer;
+    public DivTag $footer;
 
     /**
      * Panel type.
@@ -72,11 +73,11 @@ class Panel extends Card
      * @param mixed  $pageItem     hodnota nebo EaseObjekt s metodou draw()
      * @param string $pageItemName Pod tímto jménem je objekt vkládán do stromu
      *
-     * @return pointer Odkaz na vložený objekt
+     * @return Embedable|null Odkaz na vložený objekt
      */
-    public function &addItem($pageItem, $pageItemName = null)
+    public function &addItem($pageItem, $pageItemName = null): Embedable|null
     {
-        $added = $this->body->addItem($pageItem, $pageItemName);
+        $added = $this->body->addItem($pageItem);
 
         return $added;
     }

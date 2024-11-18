@@ -22,7 +22,10 @@ use Ease\TWB5\Navbar;
  */
 class NavbarTest extends \PHPUnit\Framework\TestCase
 {
-    protected Navbar $object;
+    /**
+     * @var Navbar
+     */
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -43,12 +46,10 @@ class NavbarTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @covers \Ease\TWB5\Navbar::addMenuItem
-     *
-     * @todo   Implement testaddMenuItem().
      */
     public function testaddMenuItem(): void
     {
-        $this->assertEquals('', $this->object->addMenuItem());
+        $this->assertEquals('', $this->object->addMenuItem(['a' => 'b']));
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete('This test has not been implemented yet.');
     }

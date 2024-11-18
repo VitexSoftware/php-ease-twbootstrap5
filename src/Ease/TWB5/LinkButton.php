@@ -31,7 +31,7 @@ class LinkButton extends \Ease\Html\ATag
      * @param string $href       link destination
      * @param mixed  $contents   button content
      * @param string $type       primary|info|success|warning|danger|inverse|link
-     * @param array  $properties additional properties
+     * @param array<string,string>  $properties additional properties
      */
     public function __construct(
         $href,

@@ -24,7 +24,13 @@ use Ease\Html\DivTag;
  */
 class Card extends DivTag
 {
-    public function __construct($content = null, $properties = [])
+    /**
+     * Card Compatibily Class.
+     *
+     * @param mixed $content
+     * @param array<string,string> $properties
+     */
+    public function __construct($content = null, array $properties = [])
     {
         if (\is_array($properties) && \array_key_exists('class', $properties)) {
             $properties['class'] = 'card '.$properties['class'];

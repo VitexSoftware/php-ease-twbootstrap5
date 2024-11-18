@@ -22,7 +22,10 @@ use Ease\TWB5\InputGroup;
  */
 class InputGroupTest extends \PHPUnit\Framework\TestCase
 {
-    protected InputGroup $object;
+    /**
+     * @var InputGroup
+     */
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

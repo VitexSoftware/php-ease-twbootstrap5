@@ -22,7 +22,10 @@ use Ease\TWB5\Col;
  */
 class ColTest extends \Test\Ease\Html\DivTagTest
 {
-    protected Col $object;
+    /**
+     * @var Col
+     */
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

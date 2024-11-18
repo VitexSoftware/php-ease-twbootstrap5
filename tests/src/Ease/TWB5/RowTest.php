@@ -22,7 +22,10 @@ use Ease\TWB5\Row;
  */
 class RowTest extends \PHPUnit\Framework\TestCase
 {
-    protected Row $object;
+    /**
+     * @var Row
+     */
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

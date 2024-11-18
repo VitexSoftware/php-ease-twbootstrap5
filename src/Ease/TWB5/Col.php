@@ -25,7 +25,7 @@ class Col extends \Ease\Html\DivTag
      * @param int    $size       Velikost políčka 1 - 12
      * @param mixed  $content    Obsah políčka
      * @param string $target     Typ zařízení xs|sm|md|lg
-     * @param array  $properties Další vlastnosti tagu
+     * @param array<string,string>  $properties Další vlastnosti tagu
      */
     public function __construct(
         $size = 0,
