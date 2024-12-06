@@ -184,7 +184,7 @@ EOD);
      */
     public function finalize(): void
     {
-        if (empty($this->activeTab)) {
+        if (empty($this->activeTab) && $this->tabs) {
             $this->activeTab = key($this->tabs);
         }
 
