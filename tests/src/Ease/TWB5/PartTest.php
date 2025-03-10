@@ -22,10 +22,7 @@ use Ease\TWB5\Part;
  */
 class PartTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var Part
-     */
-    protected $object;
+    protected Part $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

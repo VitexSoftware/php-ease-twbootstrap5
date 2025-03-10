@@ -27,8 +27,8 @@ class NavItemDropDown extends \Ease\Html\LiTag
     /**
      * DropDown menu.
      *
-     * @param string $heading
-     * @param array<mixed>  $items
+     * @param string       $heading
+     * @param array<mixed> $items
      */
     public function __construct($heading, $items = [])
     {
@@ -82,7 +82,7 @@ class NavItemDropDown extends \Ease\Html\LiTag
                 ['class' => 'dropdown-divider'],
             ));
         } else {
-            $this->dropdownMenu->addItemSmart(new \Ease\Html\ATag($url,$label,['class' => 'dropdown-item']));
+            $this->dropdownMenu->addItemSmart(new \Ease\Html\ATag($url, $label, ['class' => 'dropdown-item']));
         }
     }
 

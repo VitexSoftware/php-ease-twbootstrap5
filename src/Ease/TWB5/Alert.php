@@ -30,9 +30,9 @@ class Alert extends DivTag
      *
      * @see https://getbootstrap.com/docs/5.3/components/alerts/
      *
-     * @param string $type       success|info|warning|danger
-     * @param mixed  $content    to insert in
-     * @param array<string,string>  $properties<string,string> additional
+     * @param string                $type                      success|info|warning|danger
+     * @param mixed                 $content                   to insert in
+     * @param array<string, string> $properties<string,string> additional
      */
     public function __construct(string $type, $content = null, $properties = [])
     {

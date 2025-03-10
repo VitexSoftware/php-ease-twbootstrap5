@@ -73,9 +73,9 @@ class Panel extends Card
      * @param mixed  $pageItem     hodnota nebo EaseObjekt s metodou draw()
      * @param string $pageItemName Pod tímto jménem je objekt vkládán do stromu
      *
-     * @return Embedable|null Odkaz na vložený objekt
+     * @return null|Embedable Odkaz na vložený objekt
      */
-    public function &addItem($pageItem, $pageItemName = null): Embedable|null
+    public function &addItem($pageItem, $pageItemName = null): null|Embedable
     {
         $added = $this->body->addItem($pageItem);
 
@@ -95,6 +95,7 @@ class Panel extends Card
         if ($this->footer->getItemsCount()) {
             parent::addItem($this->footer);
         }
+
         parent::finalize();
     }
 }

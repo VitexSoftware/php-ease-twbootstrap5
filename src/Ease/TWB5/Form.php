@@ -19,16 +19,16 @@ use Ease\Embedable;
 
 class Form extends \Ease\Html\Form
 {
-    public \Ease\Html\DivTag  $formDiv;
+    public \Ease\Html\DivTag $formDiv;
 
     /**
      * Bootstrap Form.
      *
      * @see https://getbootstrap.com/docs/4.1/components/forms/
      *
-     * @param array<string,string> $formProperties    FormTag properties eg. ['enctype' => 'multipart/form-data']
-     * @param array<string,string> $formDivProperties FormDiv propertise eg. ['class'=>'form-row align-items-center']
-     * @param mixed $formContents      Any other initial content
+     * @param array<string, string> $formProperties    FormTag properties eg. ['enctype' => 'multipart/form-data']
+     * @param array<string, string> $formDivProperties FormDiv propertise eg. ['class'=>'form-row align-items-center']
+     * @param mixed                 $formContents      Any other initial content
      */
     public function __construct($formProperties = [], $formDivProperties = [], $formContents = null)
     {
@@ -64,9 +64,9 @@ class Form extends \Ease\Html\Form
      * @param mixed  $pageItem     Value or EaseObject with draw() method
      * @param string $pageItemName The name under which the object is inserted into the tree
      *
-     * @return Embedable|null Reference to the inserted object
+     * @return null|Embedable Reference to the inserted object
      */
-    public function &addItem($pageItem, $pageItemName = null): Embedable|null
+    public function &addItem($pageItem, $pageItemName = null): null|Embedable
     {
         if (\is_object($pageItem) && method_exists($pageItem, 'setTagClass')) {
             if (strtolower($pageItem->getTagType()) === 'select') {

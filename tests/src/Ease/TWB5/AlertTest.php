@@ -25,10 +25,8 @@ use Ease\TWB5\Alert;
 class AlertTest extends \Test\Ease\Html\DivTagTest
 {
     public string $rendered = '<div role="alert" class="alert alert-success"></div>';
-    /**
-     * @var Alert
-     */
-    protected $object;
+
+    protected Alert $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

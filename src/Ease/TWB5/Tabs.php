@@ -33,8 +33,8 @@ class Tabs extends \Ease\Container
     private string $activeTab = '';
 
     /**
-     * @param array<mixed> $tabs
-     * @param array<string,string> $properties
+     * @param array<mixed>          $tabs
+     * @param array<string, string> $properties
      */
     public function __construct(array $tabs = [], array $properties = [])
     {

@@ -1,3 +1,24 @@
 {
-    "php.version": "8.2"
+    "php.version": "8.2",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#c206c9",
+        "titleBar.activeBackground": "#c206c9",
+        "titleBar.activeForeground": "#000000",
+        "titleBar.inactiveBackground": "#c206c9",
+        "titleBar.inactiveForeground": "#000000",
+        "titleBar.border": "#c206c9",
+        "activityBar.foreground": "#000000",
+        "statusBar.background": "#c206c9",
+        "statusBar.foreground": "#000000",
+        "statusBar.debuggingBackground": "#c206c9",
+        "statusBar.debuggingForeground": "#000000",
+        "tab.activeBorder": "#c206c9",
+        "iLoveWorkSpaceColors": true,
+        "iLoveWorkSpaceRandom": false,
+        "activityBar.inactiveForeground": "#b1b1b1",
+        "activityBar.activeBorder": "#bbbbbb",
+        "activityBar.activeBackground": "#747474",
+        "activityBar.border": "#747474",
+        "statusBar.border": "#747474"
+    }
 }
