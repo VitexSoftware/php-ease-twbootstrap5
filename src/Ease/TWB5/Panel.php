@@ -57,7 +57,7 @@ class Panel extends Card
      */
     public function __construct(
         $heading = null,
-        $type = null,
+        $type = 'default',
         $body = null,
         $footer = null
     ) {

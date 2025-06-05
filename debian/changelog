@@ -1,3 +1,12 @@
+php-vitexsoftware-ease-bootstrap5 (0.1.1) UNRELEASED; urgency=medium
+
+  * Build for Ubuntu Noble added
+  * Panel update
+  * Fixed finalize in NavItemDropDown
+  * Missing finalize() fix
+
+ -- vitex <info@vitexsoftware.cz>  Tue, 21 Oct 2024 23:37:03 +0200
+
 php-vitexsoftware-ease-bootstrap5 (0.1.0) UNRELEASED; urgency=medium
 
   * v0.1.0 release
