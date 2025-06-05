@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "vitexsoftware/ease-html": ">= 1.32"
+        "vitexsoftware/ease-html": ">= 1.40"
     },
     "autoload": {
         "psr-4": {
@@ -29,9 +29,9 @@
     "require-dev": {
         "phpunit/phpunit": "*",
         "phpstan/phpstan": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.64",
-        "ergebnis/composer-normalize": "^2.44",
-        "ergebnis/php-cs-fixer-config": "^6.37"
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "ergebnis/composer-normalize": "^2.47",
+        "ergebnis/php-cs-fixer-config": "^6.46"
     },
     "config": {
         "allow-plugins": {
