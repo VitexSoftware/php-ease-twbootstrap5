@@ -22,10 +22,10 @@ class Col extends \Ease\Html\DivTag
      *
      * @see  https://getbootstrap.com/docs/5.0/layout/grid/#grid-options
      *
-     * @param int    $size       Velikost políčka 1 - 12
-     * @param mixed  $content    Obsah políčka
-     * @param string $target     Typ zařízení xs|sm|md|lg
-     * @param array<string,string>  $properties Další vlastnosti tagu
+     * @param int                   $size       Velikost políčka 1 - 12
+     * @param mixed                 $content    Obsah políčka
+     * @param string                $target     Typ zařízení xs|sm|md|lg
+     * @param array<string, string> $properties Další vlastnosti tagu
      */
     public function __construct(
         $size = 0,

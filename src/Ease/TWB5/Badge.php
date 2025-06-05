@@ -25,9 +25,9 @@ class Badge extends \Ease\Html\SpanTag
     /**
      * Badge Compatibily Class.
      *
-     * @param mixed  $content
-     * @param string $type
-     * @param array<string,string>  $properties
+     * @param mixed                 $content
+     * @param string                $type
+     * @param array<string, string> $properties
      */
     public function __construct($content = null, $type = 'default', array $properties = [])
     {

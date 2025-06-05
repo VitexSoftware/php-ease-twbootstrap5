@@ -22,10 +22,7 @@ use Ease\TWB5\Card;
  */
 class CardTest extends \Test\Ease\Html\DivTagTest
 {
-    /**
-     * @var Card
-     */
-    protected $object;
+    protected Card $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

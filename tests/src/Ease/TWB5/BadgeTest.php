@@ -22,10 +22,7 @@ use Ease\TWB5\Badge;
  */
 class BadgeTest extends \Test\Ease\Html\SpanTagTest
 {
-    /**
-     * @var Badge
-     */
-    protected $object;
+    protected Badge $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
