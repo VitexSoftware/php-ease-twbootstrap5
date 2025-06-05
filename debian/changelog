@@ -1,4 +1,4 @@
-php-vitexsoftware-ease-bootstrap5 (0.2.0) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-bootstrap5 (1.2.0) UNRELEASED; urgency=medium
 
   [ vitex ]
   * Build for Ubuntu Noble added
@@ -11,9 +11,9 @@ php-vitexsoftware-ease-bootstrap5 (0.2.0) UNRELEASED; urgency=medium
 
  -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 05 Jun 2025 16:27:46 +0200
 
-php-vitexsoftware-ease-bootstrap5 (0.1.0) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-bootstrap5 (1.1.0) UNRELEASED; urgency=medium
 
-  * v0.1.0 release
+  * v1.1.0 release
 
  -- vitex <info@vitexsoftware.cz>  Sun, 06 Oct 2024 23:37:03 +0200
 

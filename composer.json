@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "vitexsoftware/ease-html": ">= 1.40"
+        "vitexsoftware/ease-html": "^1.40"
     },
     "autoload": {
         "psr-4": {

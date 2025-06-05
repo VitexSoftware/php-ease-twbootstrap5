@@ -18,3 +18,4 @@
 /.phpunit.result.cache
 /.phpdoc/
 /.build/
+debian/files
