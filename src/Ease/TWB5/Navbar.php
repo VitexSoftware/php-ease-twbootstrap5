@@ -155,7 +155,7 @@ class Navbar extends NavTag
         return new \Ease\Html\ButtonTag(new \Ease\Html\SpanTag(null, ['class' => 'navbar-toggler-icon']), [
             'class' => 'navbar-toggler',
             'type' => 'button',
-            'data-bs-toggle' => 'dropdown',
+            'data-bs-toggle' => 'collapse',
             'data-bs-target' => '#'.$this->navBarName,
             'aria-controls' => $this->navBarName,
             'aria-expanded' => 'false',
