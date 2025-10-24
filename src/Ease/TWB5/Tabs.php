@@ -83,7 +83,7 @@ class Tabs extends \Ease\Container
         $handles = new UlTag(null, ['class' => 'nav nav-tabs', 'role' => 'tablist']);
 
         foreach ($this->tabs as $tabName => $tabContent) {
-            $id = self::strToID($tabName);
+            $id = $this->id.'-'.self::strToID($tabName);
 
             $properties = [
                 'class' => 'nav-link',
@@ -119,7 +119,7 @@ class Tabs extends \Ease\Container
         $body = new DivTag(null, ['class' => 'tab-content']);
 
         foreach ($this->tabs as $tabName => $tabContent) {
-            $id = self::strToID($tabName);
+            $id = $this->id.'-'.self::strToID($tabName);
             $tab = $body->addItem(new DivTag(
                 $tabContent,
                 [
