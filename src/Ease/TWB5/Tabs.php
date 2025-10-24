@@ -167,21 +167,33 @@ class Tabs extends \Ease\Container
 
         \Ease\WebPage::singleton()->addJavaScript(<<<'EOD'
 
-$('#
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle AJAX tabs with data-url attribute
+    var tabButtons = document.querySelectorAll('#
 EOD.$this->id.<<<'EOD'
- a').click(function (e) {
-    e.preventDefault();
-
-    var url = $(this).attr("data-url");
-    var href = this.hash;
-    var pane = $(this);
-
-    // ajax load from data-url
-    $(href).load(url,function(result){
-        pane.tab('show');
+ button[data-url]');
+    
+    tabButtons.forEach(function(button) {
+        button.addEventListener('shown.bs.tab', function(e) {
+            var url = this.getAttribute('data-url');
+            var targetId = this.getAttribute('data-bs-target');
+            var targetPane = document.querySelector(targetId);
+            
+            // Only load if pane is empty
+            if (targetPane && targetPane.innerHTML.trim() === '') {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        targetPane.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Error loading tab content:', error);
+                        targetPane.innerHTML = '<div class="alert alert-danger">Error loading content</div>';
+                    });
+            }
+        });
     });
 });
-
 
 EOD);
 
