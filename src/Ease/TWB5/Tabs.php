@@ -173,24 +173,34 @@ document.addEventListener('DOMContentLoaded', function() {
 EOD.$this->id.<<<'EOD'
  button[data-url]');
     
+    function loadTabContent(button) {
+        var url = button.getAttribute('data-url');
+        var targetId = button.getAttribute('data-bs-target');
+        var targetPane = document.querySelector(targetId);
+        
+        // Only load if pane is empty
+        if (targetPane && targetPane.innerHTML.trim() === '') {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    targetPane.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading tab content:', error);
+                    targetPane.innerHTML = '<div class="alert alert-danger">Error loading content</div>';
+                });
+        }
+    }
+    
     tabButtons.forEach(function(button) {
+        // Load content for initially active tab
+        if (button.classList.contains('active')) {
+            loadTabContent(button);
+        }
+        
+        // Load content when tab is shown
         button.addEventListener('shown.bs.tab', function(e) {
-            var url = this.getAttribute('data-url');
-            var targetId = this.getAttribute('data-bs-target');
-            var targetPane = document.querySelector(targetId);
-            
-            // Only load if pane is empty
-            if (targetPane && targetPane.innerHTML.trim() === '') {
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        targetPane.innerHTML = html;
-                    })
-                    .catch(error => {
-                        console.error('Error loading tab content:', error);
-                        targetPane.innerHTML = '<div class="alert alert-danger">Error loading content</div>';
-                    });
-            }
+            loadTabContent(this);
         });
     });
 });
