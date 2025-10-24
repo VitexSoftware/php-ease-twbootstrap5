@@ -94,6 +94,11 @@ class Tabs extends \Ease\Container
                 'aria-controls' => $id,
                 'aria-selected' => ($tabName === $this->activeTab) ? 'true' : 'false'];
 
+            // Add data-url attribute for AJAX tabs
+            if (is_array($tabContent) && isset($tabContent['ajax'])) {
+                $properties['data-url'] = $tabContent['ajax'];
+            }
+
             if ($tabName === $this->activeTab) {
                 $properties['class'] .= ' active';
             }
@@ -120,8 +125,12 @@ class Tabs extends \Ease\Container
 
         foreach ($this->tabs as $tabName => $tabContent) {
             $id = $this->id.'-'.self::strToID($tabName);
+            
+            // For AJAX tabs, create empty div that will be populated by JavaScript
+            $content = (is_array($tabContent) && isset($tabContent['ajax'])) ? '' : $tabContent;
+            
             $tab = $body->addItem(new DivTag(
-                $tabContent,
+                $content,
                 [
                     'class' => 'tab-pane fade',
                     'id' => $id,
