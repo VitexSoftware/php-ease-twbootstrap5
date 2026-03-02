@@ -24,7 +24,6 @@ set -e
 case "$1" in
     configure)
 
-        composer-global-update deb/ease-bootstrap5
 	if [ -f /usr/sbin/a2enconf ]; then
 	    a2enconf javascript-common
 	fi

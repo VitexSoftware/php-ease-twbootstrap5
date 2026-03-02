@@ -25,7 +25,6 @@ set -e
 
 case "$1" in
     configure)
-        composer-debian php-vitexsoftware-ease-bootstrap5-dev
 	pwd
 	echo 'TESTING: phpunit --bootstrap /usr/share/php/EaseTWB5/Test/Bootstrap.php --configuration /usr/share/php/EaseTWB5/Test/phpunit.xml'
 	su - `composer-webuser` -s /bin/bash -c 'phpunit --bootstrap /usr/share/php/EaseTWB5/Test/Bootstrap.php --configuration /usr/share/php/EaseTWB5/Test/phpunit.xml'
