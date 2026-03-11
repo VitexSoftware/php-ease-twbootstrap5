@@ -35,7 +35,7 @@ distributions.each { distro ->
             ansiColor('xterm') {
                 stage('Checkout ' + distroName) {
                     checkout scm
-                    def imageName = vendor + '/' + imagePrefix + distroCode + ':latest'
+                    def imageName = vendor + '/' + imagePrefix + dist[0] + ':' + distroCode
                     buildImage = docker.image(imageName)
                     sh 'git checkout debian/changelog'
                     def version = sh (
@@ -111,7 +111,7 @@ if (!currentBuild.result || currentBuild.result == 'SUCCESS') {
         string(name: 'UPSTREAM_JOB', value: env.JOB_NAME),
         string(name: 'UPSTREAM_BUILD', value: env.BUILD_NUMBER),
         string(name: 'REMOTE_SSH', value: 'multirepo@repo.multiflexi.eu'),
-        string(name: 'REMOTE_REPO_DIR', value: '/var/lib/multirepo/public/multiflexi'),
+        string(name: 'REMOTE_REPO_DIR', value: '/srv/repo'),
         string(name: 'COMPONENT', value: 'main'),
         string(name: 'DEB_DIST', value: '')
       ]
