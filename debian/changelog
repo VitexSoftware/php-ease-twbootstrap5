@@ -1,4 +1,10 @@
-php-vitexsoftware-ease-bootstrap5 (1.2.0) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-bootstrap5 (1.2.1) UNRELEASED; urgency=medium
+
+  * new debian autoloader
+
+ -- vitex <info@vitexsoftware.cz>  Sat, 21 Mar 2026 23:22:47 +0100
+
+php-vitexsoftware-ease-bootstrap5 (1.2.0) unstable; urgency=medium
 
   [ vitex ]
   * Build for Ubuntu Noble added
@@ -9,7 +15,7 @@ php-vitexsoftware-ease-bootstrap5 (1.2.0) UNRELEASED; urgency=medium
   [ Vitex ]
   * dupliticity problem solved
 
- -- Vitex <vitezslav.dvorak@spojenet.cz>  Thu, 05 Jun 2025 16:27:46 +0200
+ -- vitex <info@vitexsoftware.cz>  Sat, 21 Mar 2026 23:22:29 +0100
 
 php-vitexsoftware-ease-bootstrap5 (1.1.0) UNRELEASED; urgency=medium
 

@@ -98,19 +98,17 @@
 
             <p class="phpdocumentor-summary">This file is part of the EaseTWB5 package</p>
 
-
-    <section class="phpdocumentor-description"><p>https://github.com/VitexSoftware/php-ease-twbootstrap5/</p>
+        
+            <section class="phpdocumentor-description"><p>https://github.com/VitexSoftware/php-ease-twbootstrap5/</p>
 <p>(c) Vítězslav Dvořák <a href="http://vitexsoftware.com">http://vitexsoftware.com</a></p>
 <p>For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.</p>
 </section>
 
+        
 
 
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
     <a href="files/src-ease-twb5-row.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -127,7 +125,6 @@ file that was distributed with this source code.</p>
     </h4>
     <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Ease-TWB5-Row.html"><abbr title="\Ease\TWB5\Row">Row</abbr></a></dt>    </dl>
-
 
 
 
@@ -176,6 +173,8 @@ file that was distributed with this source code.</p>
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
