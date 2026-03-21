@@ -21,5 +21,6 @@ override_dh_install:
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
 	dh_install
 	phpab --output debian/php-vitexsoftware-ease-bootstrap5/usr/share/php/EaseTWB5/autoload.php --basedir debian/php-vitexsoftware-ease-bootstrap5/usr/share/php/EaseTWB5/ --tolerant debian/php-vitexsoftware-ease-bootstrap5/usr/share/php/EaseTWB5/
+	echo 'require_once("/usr/share/php/EaseHtml/autoload.php");' >> debian/php-vitexsoftware-ease-bootstrap5/usr/share/php/EaseTWB5/autoload.php
 	install -m0755 -d debian/php-vitexsoftware-ease-bootstrap5/usr/share/pkg-php-tools/autoloaders
 	echo 'deb ease-core EaseTWB5/autoload.php' > debian/php-vitexsoftware-ease-bootstrap5/usr/share/pkg-php-tools/autoloaders/php-vitexsoftware-ease-bootstrap5
