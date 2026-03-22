@@ -1,9 +1,9 @@
  composer.phar
 /vendor/
 
-/debian/php-vitexsoftware-ease-bootstrap5
-/debian/php-vitexsoftware-ease-bootstrap5-dev
-/debian/php-vitexsoftware-ease-bootstrap5-doc
+/debian/php-vitexsoftware-ease-twbootstrap5
+/debian/php-vitexsoftware-ease-twbootstrap5-dev
+/debian/php-vitexsoftware-ease-twbootstrap5-doc
 
 /debian/.debhelper/
 /debian/files
@@ -19,3 +19,4 @@
 /.phpdoc/
 /.build/
 debian/files
+debian/debhelper-build-stamp
