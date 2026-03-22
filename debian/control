@@ -7,7 +7,7 @@ Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
 Homepage: https://github.com/VitexSoftware/php-ease-twbootstrap5
 
-Package: php-vitexsoftware-ease-bootstrap5
+Package: php-vitexsoftware-ease-twbootstrap5
 Depends: ${misc:Depends},php-vitexsoftware-ease-html,javascript-common
 Architecture: all
 Replaces: php-vitexsoftware-ease-bootstrap5
@@ -16,8 +16,8 @@ Priority: optional
 Description: Set of Twitter Bootstrap 5 rendering objects
  TWB5 classes for Ease Framework.
 
-#Package: php-vitexsoftware-ease-bootstrap5-dev
-#Depends: ${misc:Depends}, php-vitexsoftware-ease-bootstrap5, php-vitexsoftware-ease-html-dev
+#Package: php-vitexsoftware-ease-twbootstrap5-dev
+#Depends: ${misc:Depends}, php-vitexsoftware-ease-twbootstrap5, php-vitexsoftware-ease-html-dev
 #Architecture: all
 #Replaces: php-ease-bootstrap5-dev
 #Suggests: php-vitexsoftware-ease-html
@@ -26,9 +26,10 @@ Description: Set of Twitter Bootstrap 5 rendering objects
 #Description: EasePHP Framework Unit Tests
 # Ease Framework Core unit Test classes.
 
-Package: php-vitexsoftware-ease-bootstrap5-doc
+Package: php-vitexsoftware-ease-twbootstrap5-doc
 Depends: ${misc:Depends}
 Architecture: all
+Replaces: php-vitexsoftware-ease-bootstrap5-doc
 Section: devel
 Priority: optional
 Description: EasePHP Framework Twitter Bootstrap Support documentation
