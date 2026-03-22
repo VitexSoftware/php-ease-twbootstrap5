@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-PKG_PATH:=/usr/share/php/EaseTWB
+PKG_PATH:=/usr/share/php/EaseTWB5
 BUILD_DIR:=build
 
 %:

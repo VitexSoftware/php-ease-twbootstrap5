@@ -1,4 +1,4 @@
-Source: php-vitexsoftware-ease-bootstrap5
+Source: php-vitexsoftware-ease-twbootstrap5
 Build-Depends: debhelper (>= 7.0.50~), jq, moreutils, phpdocumentor, pkg-php-tools, phpab
 Section: web
 Standards-Version: 3.9.8
@@ -10,7 +10,7 @@ Homepage: https://github.com/VitexSoftware/php-ease-twbootstrap5
 Package: php-vitexsoftware-ease-bootstrap5
 Depends: ${misc:Depends},php-vitexsoftware-ease-html,javascript-common
 Architecture: all
-Conflicts: ease-framework
+Replaces: php-vitexsoftware-ease-bootstrap5
 Section: web
 Priority: optional
 Description: Set of Twitter Bootstrap 5 rendering objects
