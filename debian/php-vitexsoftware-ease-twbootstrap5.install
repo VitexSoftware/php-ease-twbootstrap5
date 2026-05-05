@@ -1,2 +1,4 @@
 src/Ease/TWB5/*		usr/share/php/EaseTWB5/
 debian/composer.json	usr/share/php/EaseTWB5/
+php-vitexsoftware-ease-twbootstrap5.svg	usr/share/icons/hicolor/scalable/apps/
+io.github.vitexsoftware.php_vitexsoftware_ease_bootstrap5.metainfo.xml	usr/share/metainfo/

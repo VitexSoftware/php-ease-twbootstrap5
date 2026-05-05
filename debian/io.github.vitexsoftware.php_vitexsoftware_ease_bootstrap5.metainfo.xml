@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.vitexsoftware.php_vitexsoftware_ease_bootstrap5</id>
+  <icon type="stock">php-vitexsoftware-ease-twbootstrap5</icon>
   <metadata_license>MIT</metadata_license>
   <project_license>MIT</project_license>
   <name>php-vitexsoftware-ease-bootstrap5</name>
