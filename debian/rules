@@ -18,7 +18,7 @@ override_dh_auto_test:
 	echo tests temporarly skipped for now in rules file
 
 override_dh_install:
-	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  composer.json |sponge debian/tmp/composer.json
 	dh_install
 	phpab --output debian/php-vitexsoftware-ease-twbootstrap5/usr/share/php/EaseTWB5/autoload.php --basedir debian/php-vitexsoftware-ease-twbootstrap5/usr/share/php/EaseTWB5/ --tolerant debian/php-vitexsoftware-ease-twbootstrap5/usr/share/php/EaseTWB5/
 	echo 'require_once("/usr/share/php/EaseHtml/autoload.php");' >> debian/php-vitexsoftware-ease-twbootstrap5/usr/share/php/EaseTWB5/autoload.php
