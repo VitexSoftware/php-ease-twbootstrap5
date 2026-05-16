@@ -85,15 +85,19 @@ class Panel extends Card
     public function finalize(): void
     {
         $this->emptyContents();
-        if ($this->header->getItemsCount() || trim((string)$this->header) !== '') {
+
+        if ($this->header->getItemsCount() || trim((string) $this->header) !== '') {
             parent::addItem($this->header);
         }
-        if ($this->body->getItemsCount() || trim((string)$this->body) !== '') {
+
+        if ($this->body->getItemsCount() || trim((string) $this->body) !== '') {
             parent::addItem($this->body);
         }
-        if ($this->footer->getItemsCount() || trim((string)$this->footer) !== '') {
+
+        if ($this->footer->getItemsCount() || trim((string) $this->footer) !== '') {
             parent::addItem($this->footer);
         }
+
         parent::finalize();
     }
 }

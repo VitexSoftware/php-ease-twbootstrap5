@@ -95,7 +95,7 @@ class Tabs extends \Ease\Container
                 'aria-selected' => ($tabName === $this->activeTab) ? 'true' : 'false'];
 
             // Add data-url attribute for AJAX tabs
-            if (is_array($tabContent) && isset($tabContent['ajax'])) {
+            if (\is_array($tabContent) && isset($tabContent['ajax'])) {
                 $properties['data-url'] = $tabContent['ajax'];
             }
 
@@ -125,10 +125,10 @@ class Tabs extends \Ease\Container
 
         foreach ($this->tabs as $tabName => $tabContent) {
             $id = $this->id.'-'.self::strToID($tabName);
-            
+
             // For AJAX tabs, create empty div that will be populated by JavaScript
-            $content = (is_array($tabContent) && isset($tabContent['ajax'])) ? '' : $tabContent;
-            
+            $content = (\is_array($tabContent) && isset($tabContent['ajax'])) ? '' : $tabContent;
+
             $tab = $body->addItem(new DivTag(
                 $content,
                 [
@@ -172,12 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var tabButtons = document.querySelectorAll('#
 EOD.$this->id.<<<'EOD'
  button[data-url]');
-    
+
     function loadTabContent(button) {
         var url = button.getAttribute('data-url');
         var targetId = button.getAttribute('data-bs-target');
         var targetPane = document.querySelector(targetId);
-        
+
         // Only load if pane is empty
         if (targetPane && targetPane.innerHTML.trim() === '') {
             fetch(url)
@@ -191,13 +191,13 @@ EOD.$this->id.<<<'EOD'
                 });
         }
     }
-    
+
     tabButtons.forEach(function(button) {
         // Load content for initially active tab
         if (button.classList.contains('active')) {
             loadTabContent(button);
         }
-        
+
         // Load content when tab is shown
         button.addEventListener('shown.bs.tab', function(e) {
             loadTabContent(this);
