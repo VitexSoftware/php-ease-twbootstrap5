@@ -30,7 +30,7 @@ class LinkButton extends \Ease\Html\ATag
      *
      * @param string                $href       link destination
      * @param mixed                 $contents   button content
-     * @param string                $type       primary|info|success|warning|danger|inverse|link
+     * @param string                $type       primary|secondary|success|danger|warning|info|light|dark|link
      * @param array<string, string> $properties additional properties
      */
     public function __construct(
@@ -46,7 +46,7 @@ class LinkButton extends \Ease\Html\ATag
         }
 
         if (null === $type) {
-            $properties['class'] = 'btn btn-default';
+            $properties['class'] = 'btn btn-secondary';
         } else {
             $properties['class'] = 'btn btn-'.$type;
         }

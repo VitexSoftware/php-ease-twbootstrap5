@@ -22,7 +22,7 @@ use Ease\TWB5\Panel;
  */
 class PanelTest extends CardTest
 {
-    protected Panel $object;
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

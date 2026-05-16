@@ -22,7 +22,7 @@ use Ease\TWB5\Navbar;
  */
 class NavbarTest extends \PHPUnit\Framework\TestCase
 {
-    protected Navbar $object;
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

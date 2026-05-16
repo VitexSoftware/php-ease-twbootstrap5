@@ -22,7 +22,7 @@ use Ease\TWB5\NavItemDropDown;
  */
 class NavItemDropDownTest extends \PHPUnit\Framework\TestCase
 {
-    protected NavItemDropDown $object;
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

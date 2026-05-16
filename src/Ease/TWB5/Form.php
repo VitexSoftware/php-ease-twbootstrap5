@@ -24,7 +24,7 @@ class Form extends \Ease\Html\Form
     /**
      * Bootstrap Form.
      *
-     * @see https://getbootstrap.com/docs/4.1/components/forms/
+     * @see https://getbootstrap.com/docs/5.3/forms/overview/
      *
      * @param array<string, string> $formProperties    FormTag properties eg. ['enctype' => 'multipart/form-data']
      * @param array<string, string> $formDivProperties FormDiv propertise eg. ['class'=>'form-row align-items-center']
@@ -71,12 +71,12 @@ class Form extends \Ease\Html\Form
         if (\is_object($pageItem) && method_exists($pageItem, 'setTagClass')) {
             if (strtolower($pageItem->getTagType()) === 'select') {
                 $pageItem->setTagClass(trim(str_replace(
-                    'form_control',
+                    'form-control',
                     '',
                     $pageItem->getTagClass().' form-control',
                 )));
             } elseif ($pageItem->getTagProperty('type') === 'file') {
-                $pageItem->setTagClass('form-control-file');
+                $pageItem->setTagClass('form-control');
             }
         }
 

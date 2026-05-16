@@ -22,7 +22,7 @@ use Ease\TWB5\WebPage;
  */
 class WebPageTest extends \Test\Ease\WebPageTest
 {
-    protected WebPage $object;
+    protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.

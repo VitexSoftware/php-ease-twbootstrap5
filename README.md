@@ -6,24 +6,41 @@ TwitterBootstrap5 classes for EasePHP Framework
 > **Note**: If you are looking for a similar PHP library for Bootstrap 4, you can find it at [php-ease-twbootstrap4](https://github.com/VitexSoftware/php-ease-twbootstrap4.git).
 
 ## Overview
-This initial release includes a set of PHP classes designed to facilitate the creation of web components using Twitter Bootstrap 5. Each class corresponds to a specific Bootstrap component, providing an easy-to-use interface for integrating these components into your web applications.
+A comprehensive set of PHP classes for building Bootstrap 5 UI components within the EasePHP Framework. Each class wraps a specific Bootstrap 5 component and generates the correct HTML structure and CSS classes automatically.
+
+Targets **Bootstrap 5.3**.
 
 ## Classes and Their Functionalities
 
+### Accordion.php
+- **Functionality**: Collapsible content panels.
+- **Features**: Items added via `addAccordionItem()`; supports `alwaysOpen` mode (multiple sections open simultaneously).
+
+```php
+use Ease\TWB5\Accordion;
+
+$accordion = new Accordion('faq', [
+    'What is Bootstrap?' => 'A CSS framework.',
+    'What is EasePHP?'   => 'A PHP rendering library.',
+]);
+$accordion->addAccordionItem('Custom item', 'Added programmatically.', true);
+echo $accordion->draw();
+```
+
 ### Alert.php
 - **Functionality**: Create and manage Bootstrap alert messages.
-- **Features**: Supports different alert types (success, danger, warning, info), dismissible alerts, and custom messages.
+- **Features**: Supports contextual types (`success`, `danger`, `warning`, `info`, `primary`, `secondary`, `light`, `dark`).
 
 ```php
 use Ease\TWB5\Alert;
 
-$alert = new Alert('This is a success alert!', 'success');
+$alert = new Alert('success', 'Operation completed successfully!');
 echo $alert->draw();
 ```
 
 ### Badge.php
 - **Functionality**: Generate Bootstrap badges.
-- **Features**: Supports different badge styles and contextual colors.
+- **Features**: Supports all contextual colors via `text-bg-*` classes.
 
 ```php
 use Ease\TWB5\Badge;
@@ -32,20 +49,63 @@ $badge = new Badge('New', 'primary');
 echo $badge->draw();
 ```
 
+### Breadcrumb.php
+- **Functionality**: Navigation path (breadcrumb trail).
+- **Features**: Accepts ordered `['Label' => 'url']` pairs; the last item is automatically marked active.
+
+```php
+use Ease\TWB5\Breadcrumb;
+
+$breadcrumb = new Breadcrumb([
+    'Home'    => '/',
+    'Library' => '/library',
+    'Data'    => '',
+]);
+echo $breadcrumb->draw();
+```
+
+### ButtonGroup.php
+- **Functionality**: Group multiple buttons into a single line.
+- **Features**: Size variants (`lg`, `sm`), vertical stacking.
+
+```php
+use Ease\TWB5\ButtonGroup;
+use Ease\Html\ButtonTag;
+
+$group = new ButtonGroup([
+    new ButtonTag('Left',   ['class' => 'btn btn-primary']),
+    new ButtonTag('Middle', ['class' => 'btn btn-primary']),
+    new ButtonTag('Right',  ['class' => 'btn btn-primary']),
+], '', false, 'Toolbar');
+echo $group->draw();
+```
+
 ### Card.php
 - **Functionality**: Create Bootstrap card components.
-- **Features**: Supports card headers, footers, images, and various content types.
+- **Features**: Generic card container; use `Panel` for a structured header/body/footer layout.
 
 ```php
 use Ease\TWB5\Card;
 
-$card = new Card('Card Title', 'This is some text within a card body.');
+$card = new Card('This is the card body content.');
 echo $card->draw();
 ```
 
 ### Col.php
 - **Functionality**: Define column layouts using Bootstrap's grid system.
-- **Features**: Supports different column sizes and responsive breakpoints.
+- **Features**: Supports column sizes 1–12 and responsive breakpoints (`xs`, `sm`, `md`, `lg`, `xl`, `xxl`).
+
+### Collapse.php
+- **Functionality**: Togglable content panel.
+- **Features**: `triggerButton()` returns a ready-made toggle button; supports open-by-default state.
+
+```php
+use Ease\TWB5\Collapse;
+
+$collapse = new Collapse('details', 'Hidden content revealed on click.');
+echo $collapse->triggerButton('Show details')->draw();
+echo $collapse->draw();
+```
 
 ### Container.php
 - **Functionality**: Create Bootstrap container elements.
@@ -60,13 +120,14 @@ echo $container->draw();
 
 ### Form.php
 - **Functionality**: Generate Bootstrap forms.
-- **Features**: Supports various form controls, validation states, and layout options.
+- **Features**: Wraps inputs in a div; auto-applies `form-control` to added inputs; use `addInput()` for labelled input groups.
 
 ```php
 use Ease\TWB5\Form;
+use Ease\Html\InputTextTag;
 
-$form = new Form('POST', '/submit');
-$form->addItem(new Input('text', 'username', 'Username'));
+$form = new Form(['method' => 'POST', 'action' => '/submit']);
+$form->addInput(new InputTextTag('username'), 'Username');
 echo $form->draw();
 ```
 
@@ -75,64 +136,117 @@ echo $form->draw();
 - **Features**: Supports different form group layouts and validation states.
 
 ### InputGroup.php
-- **Functionality**: Create input groups with prepend and append elements.
-- **Features**: Supports various input types and custom elements.
+- **Functionality**: Create input groups with prepend text or elements.
+- **Features**: Supports various input types and custom addon elements.
 
 ### LinkButton.php
-- **Functionality**: Generate Bootstrap-styled link buttons.
-- **Features**: Supports different button styles and sizes.
+- **Functionality**: Generate Bootstrap-styled anchor (`<a>`) buttons.
+- **Features**: Supports all button variants (`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `link`); defaults to `secondary`.
 
 ```php
 use Ease\TWB5\LinkButton;
 
-$linkButton = new LinkButton('Click Me', 'https://example.com', 'primary');
+$linkButton = new LinkButton('https://example.com', 'Click Me', 'primary');
 echo $linkButton->draw();
 ```
 
+### ListGroup.php
+- **Functionality**: Versatile Bootstrap list component.
+- **Features**: Plain items or linked items via `['label' => 'url']`; flush and numbered variants; `addListItem()` for contextual colors and active state.
+
+```php
+use Ease\TWB5\ListGroup;
+
+$list = new ListGroup([
+    'Settings' => '/settings',
+    'Profile'  => '/profile',
+]);
+$list->addListItem('Notifications', 'warning');
+echo $list->draw();
+```
+
+### Modal.php
+- **Functionality**: Bootstrap modal dialog.
+- **Features**: `triggerButton()` returns a ready-made button; optional footer; size variants (`sm`, `lg`, `xl`); public `$header`, `$body`, `$footer` for further customisation.
+
+```php
+use Ease\TWB5\Modal;
+
+$modal = new Modal('confirmDelete', 'Confirm', 'Are you sure?', 'This cannot be undone.');
+echo $modal->triggerButton('Delete', 'danger')->draw();
+echo $modal->draw();
+```
+
+### Nav.php
+- **Functionality**: Standalone Bootstrap navigation component.
+- **Features**: Plain, tabs, and pills styles; fill and justified variants; `addNavItem()` for active/disabled states.
+
+```php
+use Ease\TWB5\Nav;
+
+$nav = new Nav([
+    'Home'    => '/',
+    'About'   => '/about',
+    'Contact' => '/contact',
+], 'tabs');
+echo $nav->draw();
+```
+
 ### NavItemDropDown.php
-- **Functionality**: Create dropdown items for navigation bars.
-- **Features**: Supports nested dropdowns and various alignment options.
+- **Functionality**: Dropdown menu item for use inside a Navbar.
+- **Features**: Supports multiple items and dividers via `addDropdownItem()`.
 
 ```php
 use Ease\TWB5\NavItemDropDown;
 
-$dropdown = new NavItemDropDown('Dropdown', [
-    'Action' => '#action',
-    'Another action' => '#another-action',
-    'Something else here' => '#something-else'
+$dropdown = new NavItemDropDown('More', [
+    'Action'        => '#action',
+    'Another action'=> '#another-action',
+    ''              => '',        // divider
+    'Something else'=> '#else',
 ]);
 echo $dropdown->draw();
 ```
 
 ### Navbar.php
 - **Functionality**: Generate Bootstrap navigation bars.
-- **Features**: Supports different navbar styles, responsive behaviors, and brand elements.
+- **Features**: Responsive toggle, brand element, dropdown menus, and search form support.
 
 ```php
 use Ease\TWB5\Navbar;
 
 $navbar = new Navbar('My Website', [
-    'Home' => '#home',
+    'Home'  => '#home',
     'About' => '#about',
-    'Contact' => '#contact'
 ]);
 echo $navbar->draw();
 ```
 
 ### OffCanvas.php
-- **Functionality**: Create Bootstrap offcanvas slide-in panels.
-- **Features**: Supports a title, close button, and arbitrary body content.
+- **Functionality**: Bootstrap offcanvas slide-in panel.
+- **Features**: Title, close button, and arbitrary body content.
 
 ```php
 use Ease\TWB5\OffCanvas;
 
-$offcanvas = new OffCanvas('myPanel', 'Slide-in Menu', 'Panel body content here.');
+$offcanvas = new OffCanvas('sidebar', 'Slide-in Menu', 'Panel body content here.');
 echo $offcanvas->draw();
 ```
 
+### Pagination.php
+- **Functionality**: Page navigation controls.
+- **Features**: Auto-generates numbered pages with previous/next controls; disabled states for boundary pages; size variants (`lg`, `sm`).
+
+```php
+use Ease\TWB5\Pagination;
+
+$pagination = new Pagination(3, 10, '?page=%d');
+echo $pagination->draw();
+```
+
 ### Panel.php
-- **Functionality**: Create Bootstrap card-based panels with header, body, and footer sections.
-- **Features**: Extends `Card` with contextual color types (`success`, `warning`, `info`, `danger`). Sections are only rendered when they contain content.
+- **Functionality**: Card-based panel with distinct header, body, and footer sections.
+- **Features**: Extends `Card`; contextual background colors (`success`, `warning`, `info`, `danger`); sections only render when they contain content; `addItem()` inserts into the body.
 
 ```php
 use Ease\TWB5\Panel;
@@ -144,110 +258,135 @@ echo $panel->draw();
 
 ### Part.php
 - **Functionality**: Base class for reusable component parts.
-- **Features**: Provides common functionality for other components.
+- **Features**: Provides `twBootstrapize()` to apply Bootstrap styling to arbitrary HTML elements.
+
+### Progress.php
+- **Functionality**: Bootstrap progress bar.
+- **Features**: Contextual colors, striped and animated variants, custom min/max range, optional label.
+
+```php
+use Ease\TWB5\Progress;
+
+$progress = new Progress(65, 0, 100, 'success');
+echo $progress->draw();
+
+// Striped and animated
+$progress = new Progress(40, 0, 100, 'warning', true, true, '40%');
+echo $progress->draw();
+```
 
 ### Row.php
-- **Functionality**: Define row layouts using Bootstrap's grid system.
-- **Features**: Supports different row configurations and responsive breakpoints.
+- **Functionality**: Bootstrap grid row.
+- **Features**: Optional row-cols helper; `addColumn()` shortcut creates a `Col` inside the row.
 
 ```php
 use Ease\TWB5\Row;
 use Ease\TWB5\Col;
 
 $row = new Row([
-    new Col('Column 1', 6),
-    new Col('Column 2', 6)
+    new Col(6, 'Left column'),
+    new Col(6, 'Right column'),
 ]);
 echo $row->draw();
 ```
 
+### Spinner.php
+- **Functionality**: Bootstrap loading indicator.
+- **Features**: `border` (ring) and `grow` (pulsing dot) types; all contextual colors; small size variant.
+
+```php
+use Ease\TWB5\Spinner;
+
+echo (new Spinner())->draw();                            // default border, primary
+echo (new Spinner('grow', 'success', 'sm'))->draw();    // small growing dot, green
+```
+
 ### SubmitButton.php
-- **Functionality**: Generate Bootstrap-styled submit buttons.
-- **Features**: Supports different button styles and sizes.
+- **Functionality**: Bootstrap-styled form submit button.
+- **Features**: Supports all button variants.
 
 ```php
 use Ease\TWB5\SubmitButton;
 
-$submitButton = new SubmitButton('Submit', 'primary');
-echo $submitButton->draw();
+$submit = new SubmitButton('Save changes', 'primary');
+echo $submit->draw();
 ```
 
 ### Table.php
 - **Functionality**: Create Bootstrap-styled tables.
-- **Features**: Supports striped, bordered, hoverable, and responsive tables.
+- **Features**: Pass class via properties for striped, bordered, hoverable, small, and dark variants.
 
 ```php
 use Ease\TWB5\Table;
 
 $table = new Table([
-    ['Header 1', 'Header 2'],
-    ['Row 1 Col 1', 'Row 1 Col 2'],
-    ['Row 2 Col 1', 'Row 2 Col 2']
+    ['Name',        'Score'],
+    ['Alice',       '95'],
+    ['Bob',         '87'],
 ]);
 echo $table->draw();
 ```
 
 ### Tabs.php
-- **Functionality**: Generate Bootstrap tab components.
-- **Features**: Supports static tabs, programmatic tab addition, and AJAX/dynamic content loading via `addAjaxTab()`.
+- **Functionality**: Bootstrap tab component.
+- **Features**: Static tabs via `addTab()`; AJAX/dynamic content loading via `addAjaxTab()`; first tab active by default.
 
 ```php
 use Ease\TWB5\Tabs;
 
 $tabs = new Tabs();
-$tabs->addTab('First Tab', 'Content for first tab', true);
-$tabs->addTab('Second Tab', 'Content for second tab');
-// AJAX tab — content is fetched from a URL when the tab is activated
-$tabs->addAjaxTab('Dynamic Tab', '/api/tab-content');
+$tabs->addTab('Overview',  'Overview content here.',  true);
+$tabs->addTab('Details',   'Details content here.');
+$tabs->addAjaxTab('Live',  '/api/live-data');
 echo $tabs->draw();
 ```
 
+### Toast.php
+- **Functionality**: Bootstrap toast notification.
+- **Features**: Header title, optional subtitle (e.g. timestamp), body content, autohide control.
+
+```php
+use Ease\TWB5\Toast;
+
+$toast = new Toast('Notification', 'Your file was saved.', 'Just now');
+echo $toast->draw();
+
+// Persistent (no auto-hide)
+$toast = new Toast('Warning', 'Action required.', null, false);
+echo $toast->draw();
+```
+
 ### WebPage.php
-- **Functionality**: Base class for creating web pages with Bootstrap components.
-- **Features**: Provides common functionality for integrating various Bootstrap components into a web page.
+- **Functionality**: Full Bootstrap page scaffold.
+- **Features**: Manages the HTML skeleton and automatically includes Bootstrap CSS/JS via CDN.
 
 ```php
 use Ease\TWB5\WebPage;
 use Ease\TWB5\Container;
 
 $page = new WebPage('My Web Page');
-$page->addItem(new Container('This is the main content.'));
+$page->addItem(new Container('Main content goes here.'));
 echo $page->draw();
 ```
 
-## Conclusion
-This release provides a comprehensive set of tools for integrating Bootstrap 5 components into your PHP applications, making it easier to create responsive and visually appealing web interfaces.
-
-
 ## Installation
 
-To install the library, you can use Composer. Run the following command in your project directory:
-
 ```bash
-composer require vitexsoftware/php-ease-twbootstrap5
+composer require vitexsoftware/ease-twbootstrap5
 ```
 
-Alternatively, you can add the library to your `composer.json` file manually:
+Or add to `composer.json` manually:
 
 ```json
 {
     "require": {
-        "vitexsoftware/php-ease-twbootstrap5": "^0.1"
+        "vitexsoftware/ease-twbootstrap5": "^1.0"
     }
 }
 ```
 
-Then, run:
-
-```bash
-composer install
-```
-
-After installation, you can include the autoload file in your PHP scripts to start using the library:
+Then include the autoloader:
 
 ```php
 require 'vendor/autoload.php';
 ```
-
-You are now ready to use the TwitterBootstrap5 classes in your EasePHP Framework projects.
-
