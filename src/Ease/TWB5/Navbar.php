@@ -67,8 +67,8 @@ class Navbar extends NavTag
         parent::__construct(null, $properties);
         Part::twBootstrapize();
 
-        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap navbar-expand mb-2 mb-lg-0', 'style' => '--bs-scroll-height: 100px;']);
-        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ml-auto']); // TODO
+        $this->leftContent = new UlTag(null, ['class' => 'navbar-nav flex-nowrap mb-2 mb-lg-0', 'style' => '--bs-scroll-height: 100px;']);
+        $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap mb-2 mb-lg-0']);
 
         $this->containerFluid = $this->addItem(new \Ease\Html\DivTag([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], ['class' => 'container-fluid']));
     }
