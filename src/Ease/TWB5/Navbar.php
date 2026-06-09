@@ -42,8 +42,20 @@ class Navbar extends NavTag
      * Brand link destination.
      */
     public string $mainpage = '#';
+
+    /**
+     * Render the collapsible menu as an Offcanvas drawer instead of a
+     * Bootstrap collapse. Enable in a subclass before finalize().
+     */
+    public bool $offcanvas = false;
+
+    /**
+     * Offcanvas drawer placement when $offcanvas is enabled.
+     */
+    public string $offcanvasPlacement = 'end';
     private string $navBarName = 'nav';
     private \Ease\Html\DivTag $containerFluid;
+    private ButtonTag $toggler;
 
     /**
      * App Menu.
@@ -70,7 +82,8 @@ class Navbar extends NavTag
         $this->leftContent = new UlTag(null, ['class' => 'navbar-nav flex-nowrap mb-2 mb-lg-0', 'style' => '--bs-scroll-height: 100px;']);
         $this->rightContent = new UlTag(null, ['class' => 'navbar-nav ms-auto flex-nowrap mb-2 mb-lg-0']);
 
-        $this->containerFluid = $this->addItem(new \Ease\Html\DivTag([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->navBarToggler()], ['class' => 'container-fluid']));
+        $this->toggler = $this->navBarToggler();
+        $this->containerFluid = $this->addItem(new \Ease\Html\DivTag([new ATag($this->mainpage, $brand, ['class' => 'navbar-brand']), $this->toggler], ['class' => 'container-fluid']));
     }
 
     /**
@@ -137,11 +150,48 @@ class Navbar extends NavTag
     }
 
     /**
+     * Wrap the menu in an Offcanvas drawer (responsive offcanvas-in-navbar).
+     *
+     * @see https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas
+     *
+     * @return \Ease\Html\DivTag Offcanvas drawer
+     */
+    public function navBarOffcanvas()
+    {
+        $ocId = 'offcanvas'.$this->navBarName;
+
+        $header = new \Ease\Html\DivTag([
+            new \Ease\Html\H5Tag(_('Menu'), ['class' => 'offcanvas-title', 'id' => $ocId.'Label']),
+            new ButtonTag('', ['class' => 'btn-close', 'data-bs-dismiss' => 'offcanvas', 'aria-label' => _('Close')]),
+        ], ['class' => 'offcanvas-header']);
+
+        $body = new \Ease\Html\DivTag($this->leftContent, ['class' => 'offcanvas-body']);
+
+        return new \Ease\Html\DivTag([$header, $body], [
+            'class' => 'offcanvas offcanvas-'.$this->offcanvasPlacement,
+            'tabindex' => '-1',
+            'id' => $ocId,
+            'aria-labelledby' => $ocId.'Label',
+        ]);
+    }
+
+    /**
      * Finalize NavBar.
      */
     public function finalize(): void
     {
-        $this->containerFluid->addItem($this->navbarCollapse());
+        if ($this->offcanvas) {
+            $ocId = 'offcanvas'.$this->navBarName;
+            $this->toggler->setTagProperties([
+                'data-bs-toggle' => 'offcanvas',
+                'data-bs-target' => '#'.$ocId,
+                'aria-controls' => $ocId,
+            ]);
+            $this->containerFluid->addItem($this->navBarOffcanvas());
+        } else {
+            $this->containerFluid->addItem($this->navbarCollapse());
+        }
+
         parent::finalize();
     }
 
