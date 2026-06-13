@@ -30,7 +30,10 @@ class InputGroup extends \Ease\Container
     public function __construct($heading, \Ease\Html\Input $input, $preText = '')
     {
         parent::__construct();
-        $input->setTagID();
+
+        if (empty($input->getTagID())) {
+            $input->setTagID();
+        }
 
         if ($heading) {
             $this->addItem(new \Ease\Html\LabelTag($input->getTagID(), $heading, ['class' => 'form-label']));
