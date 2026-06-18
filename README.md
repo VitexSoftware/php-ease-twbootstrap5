@@ -4,6 +4,7 @@ TwitterBootstrap5 classes for EasePHP Framework
 ![twbootstrap5](php-vitexsoftware-ease-twbootstrap5.svg?raw=true)
 
 > **Note**: If you are looking for a similar PHP library for Bootstrap 4, you can find it at [php-ease-twbootstrap4](https://github.com/VitexSoftware/php-ease-twbootstrap4.git).
+> Migrating from Bootstrap 4? See the **[Upgrade Guide](UPGRADE.md)**.
 
 ## Overview
 A comprehensive set of PHP classes for building Bootstrap 5 UI components within the EasePHP Framework. Each class wraps a specific Bootstrap 5 component and generates the correct HTML structure and CSS classes automatically.
